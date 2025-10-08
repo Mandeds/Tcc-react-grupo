@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 
-import Inicio from "./pages/inicio.jsx"
-import Segundo from "./pages/segundo.jsx"
+import Inicio from "./pages/inicio/inicio.jsx"
+import Segundo from "./pages/noticias/segundo.jsx"
 
 export default function Navegacao (){
 

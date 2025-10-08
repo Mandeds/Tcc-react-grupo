@@ -1,11 +1,15 @@
 body {
-  background: white;
+  background: #F4EDE5;
   color: black;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #121212;
+    background: #622150;
     color: white;
   }
+  a{
+    color: rgb(255, 236, 249);
+  }
 }
+

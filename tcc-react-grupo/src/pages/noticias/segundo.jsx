@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import React from "react"
+import "./segundo.scss"
 
 
 export default function Segundo (){
