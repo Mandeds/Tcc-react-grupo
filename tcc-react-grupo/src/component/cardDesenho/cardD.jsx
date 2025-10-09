@@ -1,13 +1,12 @@
-export default function CardD(){
+import './cardD.scss'
+import {Link} from 'react-router-dom'
+
+export default function CardD({texto, images}){
     return(
                     <>
                     {/*Cartoes para a pagina inicial*/}
-                    <div>
-                    <img src="src/assets/images/imgDesenho1/imgDesenho.png" alt="desenho1" />
-                    
-                    </div>
-                    <img src="src/assets/images/imgDesenho1/imgDesenho2.png" alt="desenho2" />
-                    <img src="src/assets/images/imgDesenho1/imgDesenho3.png" alt="desenho3" />
+                   <img src={images} />
+                   <h3>{texto}</h3>
                     
                     </>
                 
