@@ -19,14 +19,14 @@ export default function Inicio() {
                     {/* Primeira parte*/}
 
                     <h1 id="Titu_inicio">Laços & Patas</h1>
-                    <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" />
-                    <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" />
-                    <img src="src/assets/images/imgInicio/im3.png" alt="imagem3" />
-                    <img src="src/assets/images/imgInicio/imgrandeLado.png" alt="imagem4" />
+                    <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" width={100}  className="imagem_1" />
+                    <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" width={100} className="imagem_1"/>
+                    <img src="src/assets/images/imgInicio/im3.png" alt="imagem3"  className="imagem_1"/>
+                    <img src="src/assets/images/imgInicio/imgrandeLado.png" alt="imagem4" className="imagem_2"/>
 
                     <h3>Criando conexões de amor entre pessoas e animais.</h3>
 
-                    <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" />
+                    <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" className="imagem_3"/>
 
                 </div>
 
@@ -37,11 +37,9 @@ export default function Inicio() {
                     <h2>POR QUE TER UM ANIMAL?</h2>
 
                     <p>Ter um animal é ter um amigo de verdade. Eles dão carinho, fazem companhia e deixam os dias mais felizes. Adotar é um gesto de amor que muda duas vidas: a sua e a dele.</p>
-
-
-                    <img src="src/assets/images/imgInicio2/pg2_1.png" alt="imagem_segundaparte_1" />
-                    <img src="src/assets/images/imgInicio2/pg1_2.png" alt="imagem_segundaparte_2" />
-                    <img src="src/assets/images/imgInicio2/pg1_3.png" alt="imagem_segundaparte_3" />
+                    <img src="src/assets/images/imgInicio2/pg2_1.png" width={200} alt="imagem_segundaparte_1" className="img2_1" />
+                    <img src="src/assets/images/imgInicio2/pg1_2.png" width={200} alt="imagem_segundaparte_2" className="img2_1" />
+                    <img src="src/assets/images/imgInicio2/pg1_3.png" width={200} alt="imagem_segundaparte_3" className="img2_1" />
                 </div>
 
                 <h1>OFERTAS LEGAIS</h1>

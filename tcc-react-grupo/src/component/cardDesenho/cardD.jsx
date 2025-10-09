@@ -6,7 +6,7 @@ export default function CardD({texto, images}){
                     <>
                     {/*Cartoes para a pagina inicial*/}
                    <img src={images} />
-                   <h3>{texto}</h3>
+                   <p>{texto}</p>
                     
                     </>
                 
