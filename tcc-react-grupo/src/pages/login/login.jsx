@@ -41,7 +41,7 @@ export default function Login() {
             style={{ width: "100%", padding: "8px", margin: "10px 0" }} 
           />
           {erro && <p style={{ color: "red", fontSize: "12px" }}>{erro}</p>}
-          <button type="submit" style={{ width: "100%", padding: "10px", background: "orange", border: "none", color: "white", marginTop: "10px" }}>Entrar</button>
+          <Link to="/" type="submit" style={{ width: "100%", padding: "10px", background: "orange", border: "none", color: "white", marginTop: "10px" }}>Entrar</Link>
         </form>
         <p style={{ marginTop: "15px", fontSize: "14px" }}>
           Não tem conta? <Link to="/cadastro" style={{ color: "blue" }}>Criar conta</Link>

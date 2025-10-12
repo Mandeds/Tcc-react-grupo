@@ -62,7 +62,7 @@ function Cadastro() {
           <button type="submit" style={{ width: "100%", padding: "10px", background: "orange", border: "none", color: "white", marginTop: "10px" }}>Cadastrar</button>
         </form>
         <p style={{ marginTop: "15px", fontSize: "14px", textAlign: "center" }}>
-          Já tem conta? <Link to="/login" style={{ color: "blue" }}>Entrar</Link>
+          Já tem conta? <Link to="/" style={{ color: "blue" }}>Entrar</Link>
         </p>
       </div>
     </div>
