@@ -1,6 +1,7 @@
 import './login.scss';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaUser, FaLock } from "react-icons/fa";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -17,35 +18,51 @@ export default function Login() {
   };
 
   return (
-    <div style={{ 
-      display: "flex", alignItems: "center", justifyContent: "center", height: "100vh",
-      background: "linear-gradient(white, orange)"
-    }}>
-      <div style={{ background: "white", padding: "30px", borderRadius: "15px", width: "300px", textAlign: "center" }}>
-        <div style={{ background: "orange", borderRadius: "50%", width: "60px", height: "60px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px" }}>
-        
+    <div className="login-container">
+      <div className="login-box">
+        <div className="login-icon">
+          <FaUser color="white" size={35} />
         </div>
-        <form onSubmit={handleLogin}>
-          <input 
-            type="email" 
-            placeholder="Gmail" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            style={{ width: "100%", padding: "8px", margin: "10px 0" }} 
-          />
-          <input 
-            type="password" 
-            placeholder="Password" 
-            value={senha} 
-            onChange={(e) => setSenha(e.target.value)} 
-            style={{ width: "100%", padding: "8px", margin: "10px 0" }} 
-          />
-          {erro && <p style={{ color: "red", fontSize: "12px" }}>{erro}</p>}
-          <Link to="/" type="submit" style={{ width: "100%", padding: "10px", background: "orange", border: "none", color: "white", marginTop: "10px" }}>Entrar</Link>
+
+        <form onSubmit={handleLogin} className="login-form">
+          <div className="input-group">
+            <FaUser className="input-icon" />
+            <input
+              type="email"
+              placeholder="Gmail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="login-input"
+            />
+          </div>
+
+          <div className="input-group">
+            <FaLock className="input-icon" />
+            <input
+              type="password"
+              placeholder="Password"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              className="login-input"
+            />
+          </div>
+
+          {erro && <p className="login-error">{erro}</p>}
+
+          <div className="login-options">
+            <label>
+              <input type="checkbox" /> Relembrar
+            </label>
+            <Link to="#">Esqueceu a senha?</Link>
+          </div>
+
+          <button type="submit" className="login-button">Entrar</button>
+
+          <div className="login-register">
+            <p>Não tem conta?</p>
+            <Link to="/cadastro">Fazer cadastro</Link>
+          </div>
         </form>
-        <p style={{ marginTop: "15px", fontSize: "14px" }}>
-          Não tem conta? <Link to="/cadastro" style={{ color: "blue" }}>Criar conta</Link>
-        </p>
       </div>
     </div>
   );

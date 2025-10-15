@@ -1,9 +1,15 @@
 create database tcc_frei;
 use tcc_frei;
 
+create table cadastro(
+    id_cadastro int primary key auto_increment,
+    nm_usuario varchar (50),
+    dt_nascimento,
+    Criarsenha
+)
+
 create table usuario(
 id_usuario int primary key auto_increment,
-nm_usuario varchar(50),
 email varchar(50),
 senha varchar(40),
 biografia varchar(1000),

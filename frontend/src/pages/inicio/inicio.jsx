@@ -19,14 +19,16 @@ export default function Inicio() {
                     {/* Primeira parte*/}
 
                     <h1 id="Titu_inicio">Laços & Patas</h1>
-                    <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" width={100}  className="imagem_1" />
+                    <div className="inico_ima">
+                        <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" width={100}  className="imagem_1" />
                     <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" width={100} className="imagem_1"/>
                     <img src="src/assets/images/imgInicio/im3.png" alt="imagem3"  className="imagem_1"/>
                     <img src="src/assets/images/imgInicio/imgrandeLado.png" alt="imagem4" className="imagem_2"/>
 
-                    <h3>Criando conexões de amor entre pessoas e animais.</h3>
+                    </div>
 
-                    <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" className="imagem_3"/>
+                    <h3 id="bloq">Criando conexões de amor entre pessoas e animais.</h3>
+                    <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" width={200} className="imagem_3"/>
 
                 </div>
 
@@ -42,6 +44,8 @@ export default function Inicio() {
                     <img src="src/assets/images/imgInicio2/pg1_3.png" width={200} alt="imagem_segundaparte_3" className="img2_1" />
                 </div>
 
+        <div className="Terceira_parte">
+                
                 <h1>OFERTAS LEGAIS</h1>
 
                 <CardD
@@ -61,6 +65,7 @@ export default function Inicio() {
                     images="src/assets/images/imgDesenho1/imgDesenho3.png"
                     texto="Aqui você encontra pets perto de você! Escolha, converse com quem cuida e pronto: adoção sem complicação."
                 />
+        </div>
 
             </main>
 
