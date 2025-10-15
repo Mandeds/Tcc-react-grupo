@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import './cadastro.scss'
+
 
 function Cadastro() {
   const [email, setEmail] = useState("");
