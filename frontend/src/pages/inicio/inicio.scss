@@ -40,6 +40,16 @@ a{
   background: #fff8f3;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
+  #Titu_inicio{
+    font-size: 50px;
+  }
+
+    #bloq {
+    width: 50%;
+    height: 30px;
+    font-size: 1.5rem;
+  }
+
   .inico_ima{
     display: flex;
     flex-wrap: wrap;
@@ -62,19 +72,9 @@ a{
     margin: 5px;
   }
 
-  #bloq {
-    background-color: #622150;
-    width: 20%;
-    height: 30px;
-    font-size: 1.2rem;
-    text-align: left;
-    margin: 15px 0 10px;
-  }
-
 }
 .imagem_3 {
-  width: 85%;
-  max-width: 700px;
+  width: 100%;
   border-radius: 10px;
   object-fit: cover;
   margin-top: 10px;

@@ -10,7 +10,7 @@ export default function CabecalhoCadLog(){
         <img src="src/assets/images/logo.png" alt="Logo" />
 
         <Link to="/login"> Login </Link>
-
+        
         
         </div>
     )
