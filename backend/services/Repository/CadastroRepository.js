@@ -1,26 +1,24 @@
-import { conection } from "../../conection";
+import { conection } from "./conection.js";
 
+
+let hoje = new Date();
 
 export async function CriarUsuario(novoLogin) {
     const comando = `
     INSERT INTO login (nm_usuario, email, senha, biografia. telefone, cidade, foto_perfil, dt_criacao)
     VALUES (?, ?, MD5(?), ?, ?, ?, ?, ?);
   `;
-    try{
        const [info] = await conection.query(comando, [
+    novoLogin.nm_usuario,
     novoLogin.email,
     novoLogin.senha,
-    novoLogin.nm_usuario,
     novoLogin.bibliografia,
     novoLogin.telefone,
     novoLogin.cidade,
     novoLogin.foto_perfil,
-    novoLogin.dt_criacao
+    novoLogin.hoje
   ]);
   return info.insertId;
-    } catch (erro) {
-            console.error('Tente novamente, algo esta errado');
-    }
 }
 
 
