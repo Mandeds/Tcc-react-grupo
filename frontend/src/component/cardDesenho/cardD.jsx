@@ -5,8 +5,10 @@ export default function CardD({texto, images}){
     return(
                     <>
                     {/*Cartoes para a pagina inicial*/}
-                   <img src={images} />
+                   <div>
+                    <img src={images} />
                    <p>{texto}</p>
+                   </div>
                     
                     </>
                 

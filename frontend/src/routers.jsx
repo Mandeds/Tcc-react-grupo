@@ -5,6 +5,7 @@ import Segundo from "./pages/noticias/segundo.jsx"
 import Login from './pages/login/login.jsx'
 import Cadastro from "./pages/cadastro/cadastro.jsx"
 import Politica from "./component/footer/adicionados/politicas.jsx"
+import Naveg from "./pages/nav2/navegarPost/naveg.jsx"
 
 export default function Navegacao (){
 
@@ -15,6 +16,7 @@ export default function Navegacao (){
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/politica" element ={<Politica/>} />
+            <Route path="/Naveg" element = {<Naveg/>}/>
         </Routes>
     </BrowserRouter>)
 

@@ -56,7 +56,8 @@ export default function Login() {
             <Link to="#">Esqueceu a senha?</Link>
           </div>
 
-          <button type="submit" className="login-button">Entrar</button>
+          
+          <Link type="submit" className="login-button" to='/naveg'>Entrar</Link>
 
           <div className="login-register">
             <p>Não tem conta?</p>

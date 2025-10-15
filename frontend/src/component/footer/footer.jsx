@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./footer.scss"
 
+
 export default function Footer(){
     
     return(
@@ -9,7 +10,7 @@ export default function Footer(){
         
         <h4>Colaboradores</h4>
         <h4>Suporte</h4> {/* Tem que conectar o gmail do tcc gmail= lacos&patas@gmail.com*/}
-        <Link to="/politica">Politicas e Termos</Link>
+        <Link to="/politica">Politicas</Link>n
 
     </div>    
     )

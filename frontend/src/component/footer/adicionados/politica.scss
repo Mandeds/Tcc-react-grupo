@@ -1,0 +1,182 @@
+.politica-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #FDF2E1;
+}
+
+.politica-header {
+    background: linear-gradient(135deg, #D8742A, #F3A55A);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+}
+
+.last-update {
+    font-style: italic;
+    opacity: 0.85;
+    color: #4A2C2A;
+}
+
+.politica-content {
+    background: #FFFFFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(74, 44, 42, 0.1);
+}
+
+.politica-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #F3A55A;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    h1 {
+        color: #D8742A;
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #F3A55A;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        color: #C56A3C;
+        font-size: 1.8em;
+        margin: 30px 0 15px 0;
+        padding-left: 10px;
+        border-left: 4px solid #D8742A;
+    }
+
+    p {
+        margin-bottom: 15px;
+        text-align: justify;
+        line-height: 1.6;
+        color: #4A2C2A;
+    }
+
+    ul {
+        margin: 15px 0;
+        padding-left: 30px;
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #4A2C2A;
+        }
+    }
+}
+
+.highlight-box {
+    background: #FFF4E6;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border-left: 4px solid #D8742A;
+    color: #4A2C2A;
+}
+
+.contact-info {
+    background: #FFF8E1;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #F3A55A;
+    margin: 20px 0;
+    color: #4A2C2A;
+}
+
+.prohibited-box {
+    background: #FFE6E1;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border-left: 4px solid #D84315;
+    color: #4A2C2A;
+}
+
+.allowed-box {
+    background: #E8F5E9;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    border-left: 4px solid #4CAF50;
+    color: #4A2C2A;
+}
+
+.contact-footer {
+    background: #FFF8E1;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 40px;
+    border-left: 4px solid #F3A55A;
+
+    .contact-email {
+        font-size: 1.2em;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #C56A3C;
+    }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+    .politica-container {
+        padding: 10px;
+    }
+
+    .politica-content {
+        padding: 20px;
+    }
+
+    .politica-header {
+        padding: 30px 15px;
+
+        h1 {
+            font-size: 1.8em;
+        }
+    }
+
+    .politica-section {
+        h1 {
+            font-size: 1.8em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .politica-header {
+        h1 {
+            font-size: 1.5em;
+        }
+    }
+
+    .politica-section {
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.3em;
+        }
+    }
+
+    .politica-content {
+        padding: 15px;
+    }
+}
