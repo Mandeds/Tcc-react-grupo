@@ -2,8 +2,6 @@ create database tcc_frei;
 use tcc_frei;
 
 
-
-
 CREATE TABLE administrador(
 id_admin int primary key auto_increment,
 email varchar(255),
