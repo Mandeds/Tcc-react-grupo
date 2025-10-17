@@ -120,30 +120,35 @@ a{
 
 
 .Segunda_Parte {
-  background-color: #D3A065;
-  flex-wrap: wrap;
+  display: flex;
+  text-align: start;
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
-    background: #d3a065;
+  flex-wrap: wrap;
+justify-content: flex-start;
+ width: 100%;
+  background-color: #D3A065;
   border: 3px solid #e5c8b0;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;}
 
-  p,
-  h2 {
-    width: 80%;
-    max-width: 600px;
-    margin: 10px auto;
-  }
 
-  .img2_1 {
-    width: 30vw;
-    max-width: 300px;
-    height: auto;
-    margin: 10px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
+ p,
+ h2 {
+  font-size: 18px;
+  width: 200px;
+  margin: 10px auto;
+  color: white; /* Adicionei cor para contraste */
+}
+
+.img2_1 {
+  background-color: #622150;
+  width: 20%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
@@ -174,16 +179,30 @@ a{
 }
 
 .Terceira_parte{
-  display: flex;
+
+  background-color: #D3A065;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  text-align: center;
+    background: #d3a065;
+  border: 3px solid #e5c8b0;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  
+  
   gap: 10px;
   padding: 20px;
   margin: 0 auto;
-  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   border: 3px solid #e5c8b0;
-  border-radius: 15px;
+  
   background: #fff8f3;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  #titulo_desenho{
+    width: 100%;
+  }
 }
