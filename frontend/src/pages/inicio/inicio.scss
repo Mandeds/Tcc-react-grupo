@@ -125,7 +125,6 @@ a{
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-  justify-content: center;
   width: 100%;
   background-color: #D3A065;
   border: 3px solid #e5c8b0;
@@ -139,16 +138,14 @@ a{
  p,
  h1 {
   text-align: start;
-  font-size: 22px;
-  max-width: 80%;
-  margin: 10px auto;
+  font-size: 26px;
+  max-width: 75%;
+  margin: 20px auto;
   color: white; /* Adicionei cor para contraste */
 }
 
-.img2_1 {
-  background-color: #622150;
-  width: 20%;
-  max-width: 300px;
+.Segunda_Parte .img2_1 {
+  max-width: 800px;
   height: auto;
   border-radius: 10px;
   object-fit: cover;
@@ -169,7 +166,7 @@ a{
     align-items: center;
 
     .img2_1 {
-      width: 80%;
+      width: 90%;
       max-width: 400px;
     }
   }
@@ -177,15 +174,17 @@ a{
 .parte1{
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 45%;
   gap: 10px;
+  align-items: center;
 }
 
 .parte2{
   display: flex;
+  align-items: center;
   flex-direction: column;
-  width: 40%;
-
+  width: 45%;
+  gap: 10px;
 }
 
 @media (max-width: 480px) {
@@ -194,14 +193,14 @@ a{
     gap: 20px;
   }
 }
-
+ // Parte tres
 .Terceira_parte{
 
   background-color: #D3A065;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-    background: #d3a065;
+  background: #d3a065;
   border: 3px solid #e5c8b0;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -221,5 +220,10 @@ a{
 
   #titulo_desenho{
     width: 100%;
+    font-size: 50px;
+    text-align: center;
+    color: #A74100;
   }
+
+
 }

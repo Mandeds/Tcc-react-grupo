@@ -147,7 +147,7 @@ function Cadastro() {
           >
             {loading ? "Cadastrando..." : "Cadastrar"}
           </button>
-        </form>
+        </div>
         
         <p style={{ marginTop: "20px", fontSize: "14px", textAlign: "center", color: "#666" }}>
           Já tem conta? <Link to="/" style={{ color: "blue", textDecoration: "none" }}>Entrar</Link>

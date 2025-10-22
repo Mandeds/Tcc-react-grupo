@@ -35,9 +35,10 @@ export default function Inicio() {
                 <div className="Segunda_Parte">
 
         <div className="parte1">
-   
+        <div>
         <h1>POR QUE TER UM ANIMAL?</h1>
         <p>Ter um animal é ter um amigo de verdade. Eles dão carinho, fazem companhia e deixam os dias mais felizes.<br></br> Adotar é um gesto de amor que muda duas vidas: a sua e a dele.</p>
+        </div>
         <img src="src/assets/images/imgInicio2/pg2_1.png" width={200} alt="imagem_segundaparte_1" className="img2_1" />
 
         </div>
@@ -51,24 +52,24 @@ export default function Inicio() {
 
         <div className="Terceira_parte">
                 
-                <h1 id="titulo_desenho">OFERTAS LEGAIS</h1>
+        <h1 id="titulo_desenho">OFERTAS LEGAIS</h1>
 
-                <CardD
+<CardD
 
-                    images="src/assets/images/imgDesenho1/imgDesenho.png"
-                    texto="Ao adotar, você dá uma nova chance para um animalzinho e ainda ganha amor de verdade!"
-                />
+    images="src/assets/images/imgDesenho1/imgDesenho.png"
+    texto="Ao adotar, você dá uma nova chance para um animalzinho e ainda ganha amor de verdade!"
+/>
 
-                <CardD
+<CardD
 
-                    images="src/assets/images/imgDesenho1/imgDesenho2.png"
-                    texto="Nossos animaizinhos não têm preço, têm carinho! Adotar é gratuito e muda vidas."
-                />
+    images="src/assets/images/imgDesenho1/imgDesenho2.png"
+    texto="Nossos animaizinhos não têm preço, têm carinho! Adotar é gratuito e muda vidas."
+/>
 
-                <CardD
-                    images="src/assets/images/imgDesenho1/imgDesenho3.png"
-                    texto="Aqui você encontra pets perto de você! Escolha, converse com quem cuida e pronto: adoção sem complicação."
-                />
+<CardD
+    images="src/assets/images/imgDesenho1/imgDesenho3.png"
+    texto="Aqui você encontra pets perto de você! Escolha, converse com quem cuida e pronto: adoção sem complicação."
+/>
         </div>
 
             </main>
