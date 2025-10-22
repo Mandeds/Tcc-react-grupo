@@ -1,4 +1,5 @@
 import React from 'react'
+import "./perfil.scss"
 
 const Perfil = () => {
   return (

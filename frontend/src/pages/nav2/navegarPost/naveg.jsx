@@ -8,8 +8,12 @@ export default function Naveg (){
         <>
          <CabecalhoNav/>
          <div className="Lado1"></div>
-            <div className="Main_naveg"></div>
-            <div className="Lado2"></div>
+            <div className="Main_naveg">
+
+            </div>
+            <div className="Lado2">
+                
+            </div>
         </>
     )
 }
