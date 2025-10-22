@@ -23,3 +23,20 @@ export async function CriarUsuario(novoLogin) {
 
   return info.insertId;
 }
+
+
+
+export async function loginUsuario(email, senha){
+  const comando = `
+    SELECT id_usuario, nm_usuario, biografia, telefone, cidade, ehOng, foto_perfil
+    FROM usuario
+    WHERE email = ? 
+    AND 
+    senha = MD5(?);
+  `
+  const [info] = await connection.query(comando, [
+    email,
+    senha
+  ]);
+  return info;
+}
