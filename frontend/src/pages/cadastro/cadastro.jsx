@@ -188,7 +188,7 @@ function Cadastro() {
             style={{ 
               width: "100%", 
               padding: "12px", 
-              background: loading ? "#ccc" : "orange", 
+              background: loading ? "#ccc" : "#A36217", 
               border: "none", 
               color: "white", 
               marginTop: "10px",

@@ -17,4 +17,5 @@ endpoints.post('/cadastro', async (req, res) => {
 
 
 
+
 export default endpoints
