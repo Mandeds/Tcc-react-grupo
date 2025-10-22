@@ -34,19 +34,24 @@ export default function Inicio() {
 
                 <div className="Segunda_Parte">
 
-                    {/* Segunda parte */}
+        <div className="parte1">
+   
+        <h1>POR QUE TER UM ANIMAL?</h1>
+        <p>Ter um animal é ter um amigo de verdade. Eles dão carinho, fazem companhia e deixam os dias mais felizes.<br></br> Adotar é um gesto de amor que muda duas vidas: a sua e a dele.</p>
+        <img src="src/assets/images/imgInicio2/pg2_1.png" width={200} alt="imagem_segundaparte_1" className="img2_1" />
 
-                    <h2>POR QUE TER UM ANIMAL?</h2>
+        </div>
 
-                    <p>Ter um animal é ter um amigo de verdade. Eles dão carinho, fazem companhia e deixam os dias mais felizes. Adotar é um gesto de amor que muda duas vidas: a sua e a dele.</p>
-                    <img src="src/assets/images/imgInicio2/pg2_1.png" width={200} alt="imagem_segundaparte_1" className="img2_1" />
-                    <img src="src/assets/images/imgInicio2/pg1_2.png" width={200} alt="imagem_segundaparte_2" className="img2_1" />
-                    <img src="src/assets/images/imgInicio2/pg1_3.png" width={200} alt="imagem_segundaparte_3" className="img2_1" />
-                </div>
+        <div className="parte2">
+        <img src="src/assets/images/imgInicio2/pg1_2.png" width={200} alt="imagem_segundaparte_2" className="img2_1" />
+        <img src="src/assets/images/imgInicio2/pg1_3.png" width={200} alt="imagem_segundaparte_3" className="img2_1" />
+        </div>
+
+</div>
 
         <div className="Terceira_parte">
                 
-                <h1>OFERTAS LEGAIS</h1>
+                <h1 id="titulo_desenho">OFERTAS LEGAIS</h1>
 
                 <CardD
 
@@ -61,7 +66,6 @@ export default function Inicio() {
                 />
 
                 <CardD
-
                     images="src/assets/images/imgDesenho1/imgDesenho3.png"
                     texto="Aqui você encontra pets perto de você! Escolha, converse com quem cuida e pronto: adoção sem complicação."
                 />

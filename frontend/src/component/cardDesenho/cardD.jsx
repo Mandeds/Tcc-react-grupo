@@ -5,7 +5,7 @@ export default function CardD({texto, images}){
     return(
                     <>
                     {/*Cartoes para a pagina inicial*/}
-                   <div>
+                   <div className='cartao'>
                     <img src={images} />
                    <p>{texto}</p>
                    </div>

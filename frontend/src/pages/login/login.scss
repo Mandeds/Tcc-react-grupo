@@ -1,12 +1,11 @@
-$primary-color: #A36217;
-$secondary-color: #f7e4cc;
+
 
 .login-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(white, $primary-color);
+  background: linear-gradient(white, #A36217);
 }
 
 .login-box {
@@ -20,7 +19,7 @@ $secondary-color: #f7e4cc;
 }
 
 .login-icon {
-  background: $primary-color;
+  background: #A36217;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -41,7 +40,7 @@ $secondary-color: #f7e4cc;
 }
 
 .input-icon {
-  color: $primary-color;
+  color: #A36217;
   margin-right: 8px;
 }
 
@@ -78,20 +77,20 @@ $secondary-color: #f7e4cc;
 }
 
 .login-button {
-  background: linear-gradient(to bottom, lighten($primary-color, 10%), $primary-color);
+  background: linear-gradient(to bottom, lighten(#A36217, 10%), #A36217);
   border: none;
   color: white;
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border-radius: 30px;
   font-size: 16px;
-  margin-top: 25px;
+  margin-top: 35px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(163, 98, 23, 0.3);
   letter-spacing: 1px;
 
   &:hover {
-    background: darken($primary-color, 5%);
+    background: darken(#A36217, 5%);
   }
 }
 
@@ -104,15 +103,15 @@ $secondary-color: #f7e4cc;
     display: inline-block;
     margin-top: 5px;
     background: transparent;
-    border: 1px solid $primary-color;
+    border: 1px solid #A36217;
     border-radius: 20px;
     padding: 5px 15px;
-    color: $primary-color;
+    color: #A36217;
     text-decoration: none;
     transition: 0.3s;
 
     &:hover {
-      background: $primary-color;
+      background: #A36217;
       color: white;
     }
   }

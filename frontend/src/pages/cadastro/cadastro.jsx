@@ -130,12 +130,28 @@ function Cadastro() {
             </button>
           </form>
           
-          <div className="login-link">
-            <p>
-              Já tem conta? <Link to="/">Entrar</Link>
-            </p>
-          </div>
-        </div>
+          <button 
+            type="submit" 
+            disabled={loading}
+            style={{ 
+              width: "100%", 
+              padding: "12px", 
+              background: loading ? "#ccc" : "#A36217", 
+              border: "none", 
+              color: "white", 
+              marginTop: "10px",
+              borderRadius: "8px",
+              fontSize: "16px",
+              cursor: loading ? "not-allowed" : "pointer"
+            }}
+          >
+            {loading ? "Cadastrando..." : "Cadastrar"}
+          </button>
+        </form>
+        
+        <p style={{ marginTop: "20px", fontSize: "14px", textAlign: "center", color: "#666" }}>
+          Já tem conta? <Link to="/" style={{ color: "blue", textDecoration: "none" }}>Entrar</Link>
+        </p>
       </div>
       <Footer />
     </div>

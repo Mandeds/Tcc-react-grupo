@@ -1,0 +1,15 @@
+.cartao{
+    display:flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 22%;
+    padding: 1%;
+    gap: 50px;
+    font-size: 22px;
+    text-align: center;
+
+    img{
+        width: 300px;
+    }
+
+}
