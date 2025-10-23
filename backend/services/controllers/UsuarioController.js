@@ -25,6 +25,10 @@ endpoints.post('/login', async (req, res) => {
     res.send({ token: token });
 });
 
+endpoints.get('/login2', async (req, res) => {
+
+    res.send({ msg: "Login realizado com sucesso!" });
+});
 
 
 export default endpoints

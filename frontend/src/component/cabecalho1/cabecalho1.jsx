@@ -8,9 +8,12 @@ export default function Cabecalho1 (){
         <header className="Inicio_header">
         <img src="src/assets/images/logo.png" alt="Logo" />
          <div className="linkss">
+            
             <Link to='/'>Inicio</Link>
-         <Link to="/sobre">Sobre</Link>
-         <Link to="/segundo" >Noticias</Link>
+         
+            <Link to="/sobre">Sobre</Link>
+         
+            <Link to="/segundo" >Noticias</Link>
 
          <Link to="/login"> Login </Link>
          <Link to="/cadastro">Cadastro</Link>
