@@ -42,27 +42,33 @@ a{
 
   #Titu_inicio{
     font-size: 50px;
+    text-align: center;
+    margin: 15px;
   }
 
+.conjunto_img{
+  margin-right: 30px;
+}
+
     #bloq {
-    width: 50%;
+      text-align: start;
     height: 30px;
     font-size: 2rem;
   }
 
   .inico_ima{
     display: flex;
-    flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
     .imagem_1 {
-    width: 30vw;
+    width: 20vw;
     max-width: 300px;
     border-radius: 10px;
     object-fit: cover;
     margin: 5px;
   }
+
 
   .imagem_2 {
     width: 30vw;
@@ -79,6 +85,7 @@ a{
   object-fit: cover;
   margin-top: 10px;
 }
+
 
   h1 {
     width: 100%;
