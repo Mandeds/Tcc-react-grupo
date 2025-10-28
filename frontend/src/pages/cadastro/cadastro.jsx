@@ -1,162 +1,87 @@
-import { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import {useNavigate} from 'react-router'
-import './cadastro.scss'
-import Cabecalho1 from "../../component/cabecalho1/cabecalho1";
-import Footer from "../../component/footer/footer";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../../api";
+import "./cadastro.scss";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [repeteSenha, setRepeteSenha] = useState("");
-  const [biografia, setBiografia] = useState("");
   const [telefone, setTelefone] = useState("");
   const [cidade, setCidade] = useState("");
   const [ehOng, setEhOng] = useState(false);
-
-  
+  const [erro, setErro] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  async function HandleCadastro(){
+  const handleCadastro = (e) => {
     e.preventDefault();
-    try {
-      const response = await api.post('/cadastro', {
-        nm_usuario:nome,
-        email:email,
-        senha:senha,
-        biografia:biografia,
-        telefone:telefone,
-        cidade:cidade,
-        ehOng:ehOng
-      })
-      console.log(`Cadastro feito ${response.data}`)
-      alert("SEJA BEM VINDO");
-      api.post('/usuario', {
-        email: email,
-        senha: senha
-    })
-        .then(response => {
-            console.log(response.data);
-            const token = response.data.token
-            localStorage.setItem("token", token)
-            navigate('/perfil')
-        })
-      
-    } catch (error) {
-      console.error('Erro ao cadastrar:', error.response?.data || error.message);
+    setErro("");
+
+    if (!nome || !email || !senha || !repeteSenha) {
+      setErro("Preencha os campos obrigatórios");
+      return;
     }
-  }
+
+    if (senha !== repeteSenha) {
+      setErro("Senhas não conferem");
+      return;
+    }
+
+    setLoading(true);
+
+    api.post("/cadastro", { nm_usuario: nome, email, senha, telefone, cidade, ehOng })
+      .then((res) => {
+        console.log("Cadastrado:", res.data);
+        // login automático simplificado
+        api.post("/usuario", { email, senha })
+          .then((loginRes) => {
+            if (loginRes.data.token) localStorage.setItem("token", loginRes.data.token);
+            navigate("/perfil");
+          })
+          .catch(() => navigate("/perfil"));
+      })
+      .catch((err) => setErro(err.response?.data?.message || "Erro ao cadastrar"))
+      .finally(() => setLoading(false));
+  };
 
   return (
     <div className="cadastro-container">
-      <Cabecalho1 />
-      <div className="cadastro-box">
-        <div className="form-container">
-          <h2>Cadastro</h2>
-          
-          
-          <form>
-            <input 
-              type="text" 
-              placeholder="Nome completo" 
-              value={nome} 
-              onChange={(e) => setNome(e.target.value)}  
-              required
-            />
-            
-            <input 
-              type="email" 
-              placeholder="Email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required
-            />
-            
-            <input 
-              type="password" 
-              placeholder="Senha" 
-              value={senha} 
-              onChange={(e) => setSenha(e.target.value)} 
-              required
-            />
-            
-            <input 
-              type="password" 
-              placeholder="Confirme sua senha" 
-              value={repeteSenha} 
-              onChange={(e) => setRepeteSenha(e.target.value)} 
-              required
-            />
-            
-            <input 
-              type="text" 
-              placeholder="Telefone" 
-              value={telefone} 
-              onChange={(e) => setTelefone(e.target.value)} 
-            />
-            
-            <input 
-              type="text" 
-              placeholder="Cidade" 
-              value={cidade} 
-              onChange={(e) => setCidade(e.target.value)}  
-            />
-            
-            <textarea 
-              placeholder="Biografia (opcional)" 
-              value={biografia} 
-              onChange={(e) => setBiografia(e.target.value)} 
-            />
-            
-            <div className="checkbox-container">
-              <label>
-                <input 
-                  type="checkbox" 
-                  checked={ehOng} 
-                  onChange={(e) => setEhOng(e.target.checked)} 
-                />
-                <span>É uma ONG?</span>
-              </label>
-            </div>
-
-            <button 
-              type="submit" 
-              onClick={HandleCadastro}
-            >
-              Cadastrar
-            </button>
-          </form>
-          
-          <button 
-            type="submit" 
-            disabled={loading}
-            style={{ 
-              width: "100%", 
-              padding: "12px", 
-              background: loading ? "#ccc" : "#A36217", 
-              border: "none", 
-              color: "white", 
-              marginTop: "10px",
-              borderRadius: "8px",
-              fontSize: "16px",
-              cursor: loading ? "not-allowed" : "pointer"
-            }}
-          >
-            {loading ? "Cadastrando..." : "Cadastrar"}
-          </button>
+      <div className="cadastro-wrapper">
+        <div className="avatar-top">
+          <div className="avatar-icon"></div>
         </div>
-        
-        <p style={{ marginTop: "20px", fontSize: "14px", textAlign: "center", color: "#666" }}>
-          Já tem conta? <Link to="/" style={{ color: "blue", textDecoration: "none" }}>Entrar</Link>
-        </p>
+
+        <div className="cadastro-box">
+          <h2>Cadastro</h2>
+          {erro && <p className="error-message">{erro}</p>}
+
+          <form onSubmit={handleCadastro} className="cad-form">
+            <input type="text" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} />
+            <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+            <input type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)} />
+            <input type="password" placeholder="Repita a senha" value={repeteSenha} onChange={e => setRepeteSenha(e.target.value)} />
+            <input type="text" placeholder="Telefone" value={telefone} onChange={e => setTelefone(e.target.value)} />
+            <input type="text" placeholder="Cidade" value={cidade} onChange={e => setCidade(e.target.value)} />
+            
+            <label className="chk-label">
+              <input type="checkbox" checked={ehOng} onChange={e => setEhOng(e.target.checked)} />
+              É uma ONG?
+            </label>
+
+            <button type="submit">{loading ? "Cadastrando..." : "Cadastrar"}</button>
+          </form>
+
+          <div className="login-link">
+            <p>Já tem conta? <Link to="/">Entrar</Link></p>
+          </div>
+        </div>
       </div>
-      <Footer />
     </div>
   );
 }
 
 export default Cadastro;
+

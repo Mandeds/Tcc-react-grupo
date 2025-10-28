@@ -1,12 +1,11 @@
-import React from 'react';
-import "./sobre.scss"
-
+import React from "react";
+import "./sobre.scss";
 
 export function Sobre() {
   return (
     <div className="container">
       <header className="topo">
-        <h1>🐾 Amigos de Patas</h1>
+        <h1>🐾 Laços & Patas</h1>
         <nav>
           <a href="#contato">Contato</a>
           <button>Doar</button>
@@ -16,7 +15,7 @@ export function Sobre() {
       <section id="sobre" className="sobre">
         <h2>Sobre</h2>
         <p>
-          O <b>Amigos de Patas</b> é uma ONG apaixonada por animais e comprometida
+          O <b>Laços & Patas</b> é uma ONG apaixonada por animais e comprometida
           em transformar a vida de cães abandonados. Nosso trabalho começa com o
           <b> resgate</b> de animais em situação de rua — oferecendo cuidados
           veterinários, alimentação, abrigo e muito carinho.
@@ -57,3 +56,4 @@ export function Sobre() {
 }
 
 export default Sobre;
+
