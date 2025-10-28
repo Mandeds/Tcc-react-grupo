@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import "./Naveg.scss"
 import user from "/images/user.png"
+import gato from "/images/imagem_gato.png"
+import menu from "/images/menuHamburguer.png"
 import CabecalhoNav from "../../../component/cabecalhonav/cabecalhonav";
 
 export default function Naveg (){
@@ -9,7 +11,10 @@ export default function Naveg (){
         <>
          <CabecalhoNav/>
             <div className="cabecalho_nav">
-                <h1>Hello word</h1>
+                <img src={menu} alt="menu" id="menu_hamburguer" width={55}/>
+
+                <p className="opcao">Opção1</p>
+                <p className="opcao">Opção2</p>
             </div>
 
             <div className="container_navegacao"> 
@@ -20,7 +25,7 @@ export default function Naveg (){
 
 
             <div className="mensagens">
-            <h1>Hello word</h1>
+            <img src={gato} alt="Gato"  id="img_gato"/>
             </div>
 
             <div className="perfil_direita">
