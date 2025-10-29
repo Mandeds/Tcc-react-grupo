@@ -15,6 +15,7 @@ export default function Naveg (){
 
                 <p className="opcao">Opção1</p>
                 <p className="opcao">Opção2</p>
+                <img src={user} alt="usuario" id="img_usuario" width={100}/>
             </div>
 
             <div className="container_navegacao"> 
@@ -25,11 +26,9 @@ export default function Naveg (){
 
 
             <div className="mensagens">
-            <img src={gato} alt="Gato"  id="img_gato"/>
             </div>
 
             <div className="perfil_direita">
-                <img src={user} alt="usuario" id="img_usuario" width={80}/>
                 <h2 className="h2_mensagens">Inicio</h2>
                 <h2 className="h2_mensagens">Pesquisa</h2>
                 <h2 className="h2_mensagens">Notificações</h2>
