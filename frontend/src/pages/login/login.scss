@@ -77,7 +77,7 @@
 }
 
 .login-button {
-  background: linear-gradient(to bottom, lighten(#A36217, 10%), #A36217);
+  background: linear-gradient(to bottom, color#A36217, #A36217);
   border: none;
   color: white;
   width: 100%;
@@ -90,7 +90,7 @@
   letter-spacing: 1px;
 
   &:hover {
-    background: darken(#A36217, 5%);
+    background: color#a36217e8;
   }
 }
 

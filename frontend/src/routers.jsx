@@ -8,6 +8,7 @@ import Politica from "./component/footer/adicionados/politicas.jsx"
 import Naveg from "./pages/nav2/navegarPost/naveg.jsx"
 import Perfil from "./pages/perfil/perfil.jsx"
 import Sobre from "./pages/sobre/sobre.jsx"
+import Postagem from "./pages/nav2/postagem/postar.jsx"
 
 
 export default function Navegacao (){
@@ -22,6 +23,7 @@ export default function Navegacao (){
             <Route path="/Naveg" element = {<Naveg/>}/>
             <Route path="/perfil" element={<Perfil />}/>
             <Route path="/sobre" element ={<Sobre/>}/>  
+            <Route path="/postar" element={<Postagem/>}/>
             <Route path="*" element ={<h1>Erro 404: Página não encontrada!</h1>} />
         </Routes>
     </BrowserRouter>)

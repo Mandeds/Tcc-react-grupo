@@ -1,6 +1,6 @@
 import "./Naveg.scss"
+import { Link } from "react-router";
 import user from "/images/user.png"
-import menu from "/images/menuHamburguer.png"
 import logo from "/logo_tcc.png 1.png"
 import CabecalhoNav from "../../../component/cabecalhonav/cabecalhonav";
 
@@ -28,7 +28,8 @@ export default function Naveg (){
                 <button className="h2_mensagens">Inicio</button>
                 <button className="h2_mensagens">Pesquisa</button>
                 <button className="h2_mensagens">Notificações</button>
-            </div>
+            </div>       
+
 
             </div>
         </>
