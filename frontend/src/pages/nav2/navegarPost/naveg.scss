@@ -39,6 +39,9 @@
 .mensagens{
     background-image: url("../../../../public/images/background_mensagem.png");
     width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .perfil_direita{

@@ -1,0 +1,19 @@
+#titulo_pesquisa{
+    color: #EBA189;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    text-shadow: 1px 1px 1px black;
+    font-size: 60px;
+}
+
+#barra_pesquisa{
+    background-color: #F0D9C1;
+    border-radius: 12px;
+    position: absolute;
+    left: 40%;
+    width: 300px;
+}
+
+body{
+    background-image: url("../../../../public/images/background_mensagem.png");
+}

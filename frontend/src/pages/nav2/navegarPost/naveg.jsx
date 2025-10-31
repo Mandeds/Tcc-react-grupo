@@ -1,6 +1,6 @@
 import "./Naveg.scss"
-import { Link } from "react-router";
 import user from "/images/user.png"
+import { Link } from "react-router";
 import logo from "/logo_tcc.png 1.png"
 import CabecalhoNav from "../../../component/cabecalhonav/cabecalhonav";
 
@@ -26,7 +26,7 @@ export default function Naveg (){
 
             <div className="perfil_direita">
                 <button className="h2_mensagens">Inicio</button>
-                <button className="h2_mensagens">Pesquisa</button>
+                <Link to = "/pesquisa" className = "h2_mensagens">Pesquisa</Link>
                 <button className="h2_mensagens">Notificações</button>
             </div>       
 

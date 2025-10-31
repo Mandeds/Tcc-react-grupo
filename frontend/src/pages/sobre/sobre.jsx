@@ -3,6 +3,7 @@ import "./sobre.scss";
 
 export function Sobre() {
   return (
+
     <div className="container">
       <header className="topo">
         <h1>🐾 Laços & Patas</h1>
@@ -52,6 +53,7 @@ export function Sobre() {
         <p>© {new Date().getFullYear()} Amigos de Patas — Todos os direitos reservados</p>
       </footer>
     </div>
+
   );
 }
 
