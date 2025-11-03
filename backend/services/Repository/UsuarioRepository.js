@@ -16,7 +16,7 @@ export async function CriarUsuario(novoLogin) {
     novoLogin.biografia,
     novoLogin.telefone,
     novoLogin.cidade,
-    novoLogin.ehOng || false,  //Caso não venha nada vem como falso independente
+    novoLogin.ehOng || false,
     novoLogin.foto_perfil,
     hoje
   ]);
