@@ -3,18 +3,16 @@
     text-align: center;
     font-family: 'Fredoka One', cursive;
     text-shadow: 1px 1px 1px black;
-    font-size: 60px;
+    font-size: 55px;
 }
 
 #barra_pesquisa{
-    background-color: #EED7BF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vh;
     border-radius: 100px;
-    position: absolute;
-    left: 40%;
-    width: 300px;
-    height: 30px;
-    box-shadow: 2px 2px 5px black;
-    border: none;
+    padding: 5px;
 }
 
 body{
