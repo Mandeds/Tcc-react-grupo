@@ -10,7 +10,8 @@ endpoints.post('/cadastro', async (req, res) => {
     const dados = req.body;
 
     const novoId = await repo.CriarUsuario(dados);
-    res.send({NovoId: novoId});
+    const token = generateUserToken(novoId);
+    res.send({token: token });
 
    
 });

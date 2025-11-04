@@ -13,11 +13,11 @@ export async function CriarUsuario(novoLogin) {
     novoLogin.nm_usuario,
     novoLogin.email,
     novoLogin.senha,
-    novoLogin.biografia,
+    novoLogin.biografia || null,
     novoLogin.telefone,
     novoLogin.cidade,
     novoLogin.ehOng || false,
-    novoLogin.foto_perfil,
+    novoLogin.foto_perfil || null, 
     hoje
   ]);
 

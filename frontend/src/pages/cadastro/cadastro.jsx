@@ -36,7 +36,7 @@ function Cadastro() {
       .then((res) => {
         console.log("Cadastrado:", res.data);
         // login automático simplificado
-        api.post("/usuario", { email, senha })
+        api.post("/login", { email, senha })
           .then((loginRes) => {
             if (loginRes.data.token) localStorage.setItem("token", loginRes.data.token);
             navigate("/perfil");

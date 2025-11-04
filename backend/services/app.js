@@ -17,12 +17,7 @@ dotenv.config();
 const app = express();
 
 // Configura o middleware CORS (Cross-Origin Resource Sharing)
-app.use(cors({
-    // Define qual origem (URL do frontend) tem permissão para acessar a API
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
-    // Permite o envio de credenciais (cookies, autenticação) nas requisições
-    credentials: true
-}));
+app.use(cors());
 
 // Configura o middleware para parsing automático de JSON no corpo das requisições
 // Converte automaticamente o body das requisições em objetos JavaScript
