@@ -7,11 +7,14 @@
 }
 
 #barra_pesquisa{
-    background-color: #F0D9C1;
-    border-radius: 12px;
+    background-color: #EED7BF;
+    border-radius: 100px;
     position: absolute;
     left: 40%;
     width: 300px;
+    height: 30px;
+    box-shadow: 2px 2px 5px black;
+    border: none;
 }
 
 body{
