@@ -10,7 +10,7 @@ import Perfil from "./pages/perfil/perfil.jsx"
 import Sobre from "./pages/sobre/sobre.jsx"
 import Postagem from "./pages/nav2/postagem/postar.jsx"
 import Pesquisa from "./pages/nav2/pesquisa/pesquisa.jsx"
-
+import ChatItem from "./pages/nav2/chat/chat.jsx"
 
 export default function Navegacao (){
 
@@ -27,6 +27,7 @@ export default function Navegacao (){
             <Route path="/postar" element={<Postagem/>}/>
             <Route path="/pesquisa" element={<Pesquisa/>}/>
             <Route path="*" element ={<h1>Erro 404: Página não encontrada!</h1>} />
+            <Route path="/chat" element ={<ChatItem/>}/>
         </Routes>
     </BrowserRouter>)
 

@@ -3,6 +3,7 @@ import user from "/images/user.png"
 import { Link } from "react-router";
 import logo from "/logo_tcc.png 1.png"
 import CabecalhoNav from "../../../component/cabecalhonav/cabecalhonav";
+import ChatItem from "../../nav2/chat/chat"
 
 export default function Naveg (){
 
@@ -11,7 +12,7 @@ export default function Naveg (){
          <CabecalhoNav/>
             <div className="cabecalho_nav">
                 <img src={logo} alt="menu" id="menu_hamburguer" width={110}/>
-
+                <Link to = "/chat" className="Link_chat"> ChatItem</Link> 
                 <button id="opcao1">Opção1</button>
                 <button id="opcao2">Opção2</button>
                 <img src={user} alt="usuario" id="img_usuario" width={100}/>
