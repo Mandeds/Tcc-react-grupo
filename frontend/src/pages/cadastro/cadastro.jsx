@@ -16,36 +16,44 @@ function Cadastro() {
 
   const navigate = useNavigate();
 
-  const handleCadastro = (e) => {
-    e.preventDefault();
-    setErro("");
+ const handleCadastro = (e) => {
+  e.preventDefault();
+  setErro("");
 
-    if (!nome || !email || !senha || !repeteSenha) {
-      setErro("Preencha os campos obrigatórios");
-      return;
-    }
+  if (!nome || !email || !senha || !repeteSenha) {
+    setErro("Preencha os campos obrigatórios");
+    return;
+  }
 
-    if (senha !== repeteSenha) {
-      setErro("Senhas não conferem");
-      return;
-    }
+  if (senha !== repeteSenha) {
+    setErro("Senhas não conferem");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    api.post("/cadastro", { nm_usuario: nome, email, senha, telefone, cidade, ehOng })
-      .then((res) => {
-        console.log("Cadastrado:", res.data);
-        // login automático simplificado
-        api.post("/login", { email, senha })
-          .then((loginRes) => {
-            if (loginRes.data.token) localStorage.setItem("token", loginRes.data.token);
-            navigate("/perfil");
-          })
-          .catch(() => navigate("/perfil"));
-      })
-      .catch((err) => setErro(err.response?.data?.message || "Erro ao cadastrar"))
-      .finally(() => setLoading(false));
-  };
+  api.post("/cadastro", { 
+    nm_usuario: nome, 
+    email, 
+    senha, 
+    telefone, 
+    cidade, 
+    ehOng,
+    foto_perfil: ""
+  })
+    .then((res) => {
+      console.log("Cadastrado:", res.data);
+      api.post("/login", { email, senha })
+        .then((loginRes) => {
+          if (loginRes.data.token) localStorage.setItem("token", loginRes.data.token);
+          navigate("/perfil");
+        })
+        .catch(() => navigate("/perfil"));
+    })
+    .catch((err) => setErro(err.response?.data?.message || "Erro ao cadastrar"))
+    .finally(() => setLoading(false));
+};
+
 
   return (
     <div className="cadastro-container">

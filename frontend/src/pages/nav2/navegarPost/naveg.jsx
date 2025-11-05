@@ -12,7 +12,6 @@ export default function Naveg (){
          <CabecalhoNav/>
             <div className="cabecalho_nav">
                 <img src={logo} alt="menu" id="menu_hamburguer" width={110}/>
-                <Link to = "/chat" className="Link_chat"> ChatItem</Link> 
                 <button id="opcao1">Opção1</button>
                 <button id="opcao2">Opção2</button>
                 <img src={user} alt="usuario" id="img_usuario" width={100}/>
@@ -22,17 +21,28 @@ export default function Naveg (){
 
 
 
+
             <div className="mensagens">
             </div>
 
             <div className="perfil_direita">
                 <button className="h2_mensagens">Inicio</button>
                 <Link to = "/pesquisa" className = "h2_mensagens">Pesquisa</Link>
-                <button className="h2_mensagens">Notificações</button>
+                <Link to="/chat" className = "h2_mensagens" >Chat</Link>
             </div>       
 
 
             </div>
         </>
     )
+}
+
+function Footer({ onAddUser }) {
+  return (
+    <footer className="Footer">
+      <div className="add-post-icon" onClick={onAddUser}>
+        +
+      </div>
+    </footer>
+  );
 }

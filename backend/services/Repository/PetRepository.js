@@ -1,23 +1,46 @@
 import connection from "./connection";
 
-export async function PetCadastro (novoPet) {
-    const comando = 'Insert into pet ( nm_pet, especie,raca,idade, sexo, porte, descricao, estado_fisico,fotos, vacinado, vacinas_qual, castrado, localizacao, data_castrado ';
+import connection from "./connection.js";
 
-     const [info] = await connection.query(comando, [
-        novoPet.nm_pet,
-        novoPet.especie,
-        novoPet.raca,
-        novoPet.idade,
-        novoPet.sexo,
-        novoPet.porte,
-        novoPet.descricao,
-        novoPet.estado_fisico,
-        novoPet.foto,
-        novoPet.vacinado,
-        novoPet.vacianas_qual,
-        novoPet.cadastro,
-        novoPet.localizacao,
-        novoPet.data_cadastrado
-     ])
-     return info.insertId;
+export async function PetCadastro(novoPet) {
+  const comando = `
+    INSERT INTO pet (
+      id_usuario,
+      nm_pet,
+      especie,
+      raca,
+      idade,
+      sexo,
+      porte,
+      descricao,
+      estado_fisico,
+      fotos,
+      vacinado,
+      vacinas_qual,
+      castrado,
+      localizacao,
+      data_castrado
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  const [info] = await connection.query(comando, [
+    novoPet.id_usuario,
+    novoPet.nm_pet,
+    novoPet.especie,
+    novoPet.raca,
+    novoPet.idade,
+    novoPet.sexo,
+    novoPet.porte,
+    novoPet.descricao,
+    novoPet.estado_fisico,
+    novoPet.fotos,
+    novoPet.vacinado,
+    novoPet.vacinas_qual,
+    novoPet.castrado,
+    novoPet.localizacao,
+    novoPet.data_castrado
+  ]);
+
+  return info.insertId;
 }
