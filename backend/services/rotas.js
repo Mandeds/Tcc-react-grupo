@@ -1,11 +1,11 @@
-import UsuarioController from '../controllers/UsuarioController.js';
-import PetController from '../controllers/PetController.js';
-import ChatController from '../controllers/ChatController.js';
+import UsuarioController from './controllers/UsuarioController.js';
+import PetController from './controllers/PetController.js';
+import ChatController from './controllers/ChatController.js';
 
-async function CriarRotas(api) {
+async function criarRotas(api) {
     api.use(UsuarioController);
     api.use(PetController);
     api.use(ChatController);
 }
 
-export default CriarRotas;
+export default criarRotas;

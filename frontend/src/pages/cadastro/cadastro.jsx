@@ -16,7 +16,7 @@ function Cadastro() {
 
   const navigate = useNavigate();
 
- const handleCadastro = (e) => {
+const handleCadastro = (e) => {
   e.preventDefault();
   setErro("");
 
@@ -32,25 +32,36 @@ function Cadastro() {
 
   setLoading(true);
 
-  api.post("/cadastro", { 
+  // TESTE: Envie null no telefone
+  const dadosCadastro = { 
     nm_usuario: nome, 
     email, 
     senha, 
-    telefone, 
-    cidade, 
+    telefone: null,  // ← Mude para null
+    cidade: cidade || '',
     ehOng,
-    foto_perfil: ""
-  })
+    biografia: '',
+    foto_perfil: ''
+  };
+
+  console.log("Enviando dados:", dadosCadastro);
+
+  api.post("/cadastro", dadosCadastro)
     .then((res) => {
       console.log("Cadastrado:", res.data);
       api.post("/login", { email, senha })
         .then((loginRes) => {
-          if (loginRes.data.token) localStorage.setItem("token", loginRes.data.token);
+          if (loginRes.data.token) {
+            localStorage.setItem("token", loginRes.data.token);
+          }
           navigate("/perfil");
         })
         .catch(() => navigate("/perfil"));
     })
-    .catch((err) => setErro(err.response?.data?.message || "Erro ao cadastrar"))
+    .catch((err) => {
+      console.error("Erro detalhado:", err);
+      setErro(err.response?.data?.message || "Erro ao cadastrar");
+    })
     .finally(() => setLoading(false));
 };
 
@@ -83,7 +94,7 @@ function Cadastro() {
           </form>
 
           <div className="login-link">
-            <p>Já tem conta? <Link to="/">Entrar</Link></p>
+            <p>Já tem conta?</p>
           </div>
         </div>
       </div>

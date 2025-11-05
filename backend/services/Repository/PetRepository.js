@@ -1,6 +1,5 @@
-import connection from "./connection";
-
 import connection from "./connection.js";
+
 
 export async function PetCadastro(novoPet) {
   const comando = `

@@ -1,4 +1,7 @@
+import { Router } from 'express';
 import * as ChatRepository from "../Repository/ChatRepository.js";
+
+const router = Router();
 
 export async function listarContatos(req, res) {
   try {
@@ -42,3 +45,9 @@ export async function enviarMensagem(req, res) {
     res.status(500).send({ erro: "Erro ao enviar mensagem", detalhes: err.message });
   }
 }
+
+router.get('/contatos/:idUsuario', listarContatos);
+router.get('/mensagens/:idUsuario/:idDestinatario', listarMensagens);
+router.post('/mensagem', enviarMensagem);
+
+export default router;

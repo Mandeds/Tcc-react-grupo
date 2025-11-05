@@ -2,20 +2,51 @@ import './login.scss';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
+import api from '../../api.js'; // ajuste o caminho conforme sua estrutura
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (email === "teste@gmail.com" && senha === "123456") {
-      alert("Login realizado com sucesso!");
-    } else {
-      setErro("Email ou senha inválidos");
+  const handleLogin = async (e) => {
+  e.preventDefault();
+  setErro("");
+
+  // Validação básica no frontend
+  if (!email || !senha) {
+    setErro("Por favor, preencha todos os campos");
+    return;
+  }
+
+  try {
+    const response = await api.post('/login', {
+      email: email,
+      senha: senha
+    });
+
+    // Salva o token no localStorage
+    localStorage.setItem('token', response.data.token);
+    
+    // Salva informações do usuário se vierem na resposta
+    if (response.data.usuario) {
+      localStorage.setItem('usuario', JSON.stringify(response.data.usuario));
     }
-  };
+    
+    alert("Login realizado com sucesso!");
+    window.location.href = '/naveg';
+
+  } catch (error) {
+    console.error('Erro no login:', error);
+    if (error.response && error.response.status === 401) {
+      setErro("Email ou senha inválidos");
+    } else if (error.response && error.response.data.message) {
+      setErro(error.response.data.message);
+    } else {
+      setErro("Erro ao fazer login. Tente novamente.");
+    }
+  }
+};
 
   return (
     <div className="login-container">
@@ -29,10 +60,11 @@ export default function Login() {
             <FaUser className="input-icon" />
             <input
               type="email"
-              placeholder="Gmail"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="login-input"
+              required
             />
           </div>
 
@@ -44,6 +76,7 @@ export default function Login() {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               className="login-input"
+              required
             />
           </div>
 
@@ -56,8 +89,9 @@ export default function Login() {
             <Link to="#">Esqueceu a senha?</Link>
           </div>
 
-          
-          <Link type="submit" className="login-button" to='/naveg'>Entrar</Link>
+          <button type="submit" className="login-button">
+            Entrar
+          </button>
 
           <div className="login-register">
             <p>Não tem conta?</p>
