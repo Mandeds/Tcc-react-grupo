@@ -1,7 +1,8 @@
 import * as repo from '../Repository/UsuarioRepository.js'
 import { Router } from 'express';
-import {generateUserToken} from '../utils/jwt.js'
+import { generateUserToken, getTokenInfo, requireAuth } from '../utils/jwt.js'
 
+const auth = requireAuth()
 
 const endpoints = Router();
 
@@ -9,13 +10,13 @@ const endpoints = Router();
 endpoints.post('/cadastro', async (req, res) => {
     try {
         const dados = req.body;
-        
+
         console.log("Dados recebidos no cadastro:", dados);
 
-        // Validação básica
+
         if (!dados.nm_usuario || !dados.email || !dados.senha) {
-            return res.status(400).send({ 
-                message: "Nome, email e senha são obrigatórios" 
+            return res.status(400).send({
+                message: "Nome, email e senha são obrigatórios"
             });
         }
 
@@ -37,11 +38,13 @@ endpoints.post('/cadastro', async (req, res) => {
         const token = generateUserToken(novoId);
 
         res.send({ token });
-        
-    } catch (err) {
+
+    }
+
+    catch (err) {
         console.error("Erro ao cadastrar usuário:", err);
-        res.status(500).send({ 
-            message: "Erro ao cadastrar usuário: " + err.message 
+        res.status(500).send({
+            message: "Erro ao cadastrar usuário: " + err.message
         });
     }
 });
@@ -51,23 +54,23 @@ endpoints.post('/login', async (req, res) => {
     try {
         const email = req.body.email;
         const senha = req.body.senha;
-        
+
         const info = await repo.loginUsuario(email, senha);
-        
+
         // Verifica se encontrou algum usuário
         if (info.length === 0) {
-            return res.status(401).send({ 
-                message: "Email ou senha inválidos" 
+            return res.status(401).send({
+                message: "Email ou senha inválidos"
             });
         }
 
         // Pega o primeiro usuário do array (deve ser único)
         const usuario = info[0];
-        
+
         // Gera o token passando apenas o ID do usuário
         const token = generateUserToken(usuario.id_usuario);
-        
-        res.send({ 
+
+        res.send({
             token: token,
             usuario: {
                 id: usuario.id_usuario,
@@ -80,13 +83,25 @@ endpoints.post('/login', async (req, res) => {
             }
         });
 
-    } catch (err) {
+    }
+
+    catch (err) {
         console.error("Erro no login:", err);
-        res.status(500).send({ 
-            message: "Erro interno do servidor" 
+        res.status(500).send({
+            message: "Erro interno do servidor"
         });
     }
 });
+
+endpoints.post('/login/admin', async (req, resp) => {
+    const cred = req.body
+
+    const resposta = await repo.VerificarAdm(cred)
+    resp.send({
+        Mensagem: 'Administrador Verificado',
+        admin: resposta
+    })
+})
 
 
 export default endpoints;

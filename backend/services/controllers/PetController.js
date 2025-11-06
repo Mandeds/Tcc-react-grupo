@@ -16,14 +16,10 @@ endpoints.post('/petcadastro', async (req, res) => {
 
 
 endpoints.get('/posts', async (req, res) => {
-  try {
     const lista = await repo.listarPets();
     res.send(lista);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ message: "Erro ao buscar pets" });
   }
-});
+);
 
 
 export default endpoints;

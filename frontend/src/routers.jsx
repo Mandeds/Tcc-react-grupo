@@ -26,8 +26,10 @@ export default function Navegacao (){
             <Route path="/sobre" element ={<Sobre/>}/>  
             <Route path="/postar" element={<Postagem/>}/>
             <Route path="/pesquisa" element={<Pesquisa/>}/>
-            <Route path="*" element ={<h1>Erro 404: Página não encontrada!</h1>} />
             <Route path="/chat" element ={<Chat/>}/>
+            
+            
+            <Route path="*" element ={<h1>Erro 404: Página não encontrada!</h1>} />
         </Routes>
     </BrowserRouter>)
 

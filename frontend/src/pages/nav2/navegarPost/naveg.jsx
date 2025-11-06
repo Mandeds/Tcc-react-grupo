@@ -3,7 +3,7 @@ import user from "/images/user.png"
 import { Link } from "react-router";
 import logo from "/logo_tcc.png 1.png"
 import CabecalhoNav from "../../../component/cabecalhonav/cabecalhonav";
-import ChatItem from "../../nav2/chat/chat"
+
 
 export default function Naveg (){
 
@@ -26,7 +26,7 @@ export default function Naveg (){
             </div>
 
             <div className="perfil_direita">
-                <button className="h2_mensagens">Inicio</button>
+                <button className="h2_mensagens"><Link to="/">Inicio</Link></button>
                 <Link to = "/pesquisa" className = "h2_mensagens">Pesquisa</Link>
                 <Link to="/chat" className = "h2_mensagens" >Chat</Link>
             </div>       

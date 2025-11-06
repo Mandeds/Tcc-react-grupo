@@ -114,7 +114,7 @@ export default function Noticias() {
   return (
     <div className="noticias-container">
       <Cabecalho1 />
-      <h1>Notícias do Mundo Pet 🐾</h1>
+      <h1>Notícias do Mundo Pet </h1>
 
       <div className="noticias-grid">
         {noticias.map((noticia, i) => (

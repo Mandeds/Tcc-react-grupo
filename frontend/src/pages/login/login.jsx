@@ -4,49 +4,54 @@ import { Link } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
 import api from '../../api.js'; // ajuste o caminho conforme sua estrutura
 
+import { Navigate } from 'react-router-dom';
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
+  const navigate = Navigate()
 
   const handleLogin = async (e) => {
-  e.preventDefault();
-  setErro("");
+    e.preventDefault();
+    setErro("");
 
-  // Validação básica no frontend
-  if (!email || !senha) {
-    setErro("Por favor, preencha todos os campos");
-    return;
-  }
-
-  try {
-    const response = await api.post('/login', {
-      email: email,
-      senha: senha
-    });
-
-    // Salva o token no localStorage
-    localStorage.setItem('token', response.data.token);
-    
-    // Salva informações do usuário se vierem na resposta
-    if (response.data.usuario) {
-      localStorage.setItem('usuario', JSON.stringify(response.data.usuario));
+    // Validação básica no frontend
+    if (!email || !senha) {
+      setErro("Por favor, preencha todos os campos");
+      return;
     }
-    
-    alert("Login realizado com sucesso!");
-    window.location.href = '/naveg';
 
-  } catch (error) {
-    console.error('Erro no login:', error);
-    if (error.response && error.response.status === 401) {
-      setErro("Email ou senha inválidos");
-    } else if (error.response && error.response.data.message) {
-      setErro(error.response.data.message);
-    } else {
-      setErro("Erro ao fazer login. Tente novamente.");
+    try {
+      const response = await api.post('/login', {
+        email: email,
+        senha: senha
+      });
+
+      // Salva o token no localStorage
+      localStorage.setItem('token', response.data.token);
+
+      // Salva informações do usuário se vierem na resposta
+      if (response.data.usuario) {
+        localStorage.setItem('usuario', JSON.stringify(response.data.usuario));
+      }
+
+      alert("Login realizado com sucesso!");
+      window.location.href = '/naveg';
+
+      navigate('/Naveg')
+
+    } catch (error) {
+      console.error('Erro no login:', error);
+      if (error.response && error.response.status === 401) {
+        setErro("Email ou senha inválidos");
+      } else if (error.response && error.response.data.message) {
+        setErro(error.response.data.message);
+      } else {
+        setErro("Erro ao fazer login. Tente novamente.");
+      }
     }
-  }
-};
+  };
 
   return (
     <div className="login-container">
@@ -92,6 +97,8 @@ export default function Login() {
           <button type="submit" className="login-button">
             Entrar
           </button>
+
+          <Link to='/naveg'>Entrar</Link>
 
           <div className="login-register">
             <p>Não tem conta?</p>

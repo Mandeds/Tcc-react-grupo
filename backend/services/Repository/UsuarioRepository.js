@@ -49,3 +49,15 @@ export async function loginUsuario(email, senha){
   ]);
   return info;
 }
+
+export async function VerificarAdm (cred) {
+  let [registro] = await connection.query(`
+    SELECT id_admin
+    FROM administrador
+    WHERE email = ?
+    AND senha = MD5(?)
+    `, [
+      cred.email,
+      cred.senha])
+    return registro
+}

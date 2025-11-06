@@ -54,9 +54,9 @@ const handleCadastro = (e) => {
           if (loginRes.data.token) {
             localStorage.setItem("token", loginRes.data.token);
           }
-          navigate("/perfil");
+          navigate("/naveg");
         })
-        .catch(() => navigate("/perfil"));
+        .catch(() => navigate("/naveg"));
     })
     .catch((err) => {
       console.error("Erro detalhado:", err);
@@ -82,7 +82,7 @@ const handleCadastro = (e) => {
             <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
             <input type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)} />
             <input type="password" placeholder="Repita a senha" value={repeteSenha} onChange={e => setRepeteSenha(e.target.value)} />
-            <input type="text" placeholder="Telefone" value={telefone} onChange={e => setTelefone(e.target.value)} />
+            <input type="number" placeholder="Telefone" value={telefone} onChange={e => setTelefone(e.target.value)} />
             <input type="text" placeholder="Cidade" value={cidade} onChange={e => setCidade(e.target.value)} />
             
             <label className="chk-label">

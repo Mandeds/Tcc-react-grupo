@@ -4,7 +4,6 @@ import connection from "./connection.js";
 export async function PetCadastro(novoPet) {
   const comando = `
     INSERT INTO pet (
-      id_usuario,
       nm_pet,
       especie,
       raca,
@@ -20,11 +19,10 @@ export async function PetCadastro(novoPet) {
       localizacao,
       data_castrado
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
   const [info] = await connection.query(comando, [
-    novoPet.id_usuario,
     novoPet.nm_pet,
     novoPet.especie,
     novoPet.raca,
