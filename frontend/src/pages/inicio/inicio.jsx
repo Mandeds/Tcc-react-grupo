@@ -5,6 +5,7 @@ import Footer from "../../component/footer/footer";
 import CardD from "../../component/cardDesenho/cardD";
 
 
+
 export default function Inicio() {
 
     return (
@@ -29,7 +30,7 @@ export default function Inicio() {
                         <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" width={100} className="imagem_1"/>
                         <img src="src/assets/images/imgInicio/im3.png" alt="imagem3"  className="imagem_1"/>
 
-                        <h3 id="bloq">Criando conexões de amor entre pessoas e animais.</h3>
+                        <h3 id="bloq">Criando conexões de amor entre <br /> pessoas e animais.</h3>
 
                         <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" width={200} className="imagem_3"/>
 
@@ -85,10 +86,10 @@ export default function Inicio() {
 />
         </div>
 
+            
             </main>
 
-            <Footer />
-
+            
         </>
     )
 }
