@@ -18,26 +18,30 @@ export default function Inicio() {
 
                     {/* Primeira parte*/}
 
-                    <h1 id="Titu_inicio">Laços & Patas</h1>
+            <div className="container_img">
+                
+                <div className="inico_ima">
+
+                    <div className="conjunto_img">
                     
-                    <div className="inico_ima">
+                        <h1 id="Titu_inicio">Laços & Patas</h1>
+                        <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" width={100}  className="imagem_1" />
+                        <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" width={100} className="imagem_1"/>
+                        <img src="src/assets/images/imgInicio/im3.png" alt="imagem3"  className="imagem_1"/>
 
-                <div className="conjunto_img">
-                   
-                    <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" width={100}  className="imagem_1" />
-                    <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" width={100} className="imagem_1"/>
-                    <img src="src/assets/images/imgInicio/im3.png" alt="imagem3"  className="imagem_1"/>
+                        <h3 id="bloq">Criando conexões de amor entre pessoas e animais.</h3>
 
-
-                    
-                </div>
-                <img src="src/assets/images/imgInicio/imgrandeLado.png" alt="imagem4" className="imagem_2"/>
-
-                    <h3 id="bloq">Criando conexões de amor entre pessoas e animais.</h3>
+                        <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" width={200} className="imagem_3"/>
 
                     </div>
 
-                    <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" width={200} className="imagem_3"/>
+
+                            <img src="src/assets/images/imgInicio/imgrandeLado.png" alt="imagem4"
+                            className="imagem_2"/>
+                                        
+
+                </div>
+            </div>
 
                 </div>
 
