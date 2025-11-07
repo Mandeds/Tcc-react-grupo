@@ -46,6 +46,27 @@ export async function enviarMensagem(req, res) {
   }
 }
 
+
+export async function listarUsuarios() {
+  const resultado = await conexao.query(`
+    SELECT id, nome, email 
+    FROM usuarios 
+    WHERE id != $1
+  `, [idUsuario]); // Exclui o usuário atual da lista
+  
+  return resultado.rows;
+}
+
+// E esta rota no seu router
+router.get('/usuarios', async (req, res) => {
+  try {
+    const usuarios = await ChatRepository.listarUsuarios();
+    res.send(usuarios);
+  } catch (err) {
+    res.status(500).send({ erro: "Erro ao listar usuários" });
+  }
+});
+
 router.get('/contatos/:idUsuario', listarContatos);
 router.get('/mensagens/:idUsuario/:idDestinatario', listarMensagens);
 router.post('/mensagem', enviarMensagem);

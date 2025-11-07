@@ -75,6 +75,7 @@ export default function Inicio() {
 />
 
 <CardD
+className="CardD"
 
     images="src/assets/images/imgDesenho1/imgDesenho2.png"
     texto="Nossos animaizinhos não têm preço, têm carinho! Adotar é gratuito e muda vidas."
@@ -89,6 +90,7 @@ export default function Inicio() {
             
             </main>
 
+            <Footer/>
             
         </>
     )

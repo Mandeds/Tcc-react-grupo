@@ -94,7 +94,7 @@ const handleCadastro = (e) => {
           </form>
 
           <div className="login-link">
-            <p>Já tem conta?</p>
+            <p id="perg-cad">Já tem conta?</p>
           </div>
         </div>
       </div>

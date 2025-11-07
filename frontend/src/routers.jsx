@@ -11,6 +11,7 @@ import Sobre from "./pages/sobre/sobre.jsx"
 import Postagem from "./pages/nav2/postagem/postar.jsx"
 import Pesquisa from "./pages/nav2/pesquisa/pesquisa.jsx"
 import Chat from "./pages/nav2/chat/chat.jsx"
+import Postar from "./pages/nav2/postagem/postar.jsx"
 
 export default function Navegacao (){
 
@@ -21,12 +22,13 @@ export default function Navegacao (){
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/politica" element ={<Politica/>} />
-            <Route path="/Naveg" element = {<Naveg/>}/>
+            <Route path="/naveg" element = {<Naveg/>}/>
             <Route path="/perfil" element={<Perfil />}/>
             <Route path="/sobre" element ={<Sobre/>}/>  
             <Route path="/postar" element={<Postagem/>}/>
             <Route path="/pesquisa" element={<Pesquisa/>}/>
             <Route path="/chat" element ={<Chat/>}/>
+            <Route path="/post" element={<Postar/>}/>
             
             
             <Route path="*" element ={<h1>Erro 404: Página não encontrada!</h1>} />

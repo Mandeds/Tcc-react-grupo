@@ -10,7 +10,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
-  const navigate = Navigate()
+  //const navigate = Navigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ export default function Login() {
       alert("Login realizado com sucesso!");
       window.location.href = '/naveg';
 
-      navigate('/Naveg')
+      //navigate('/naveg');
 
     } catch (error) {
       console.error('Erro no login:', error);

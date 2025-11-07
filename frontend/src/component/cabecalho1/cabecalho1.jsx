@@ -9,7 +9,7 @@ export default function Cabecalho1 (){
         <img src="src/assets/images/logo.png" alt="Logo" />
          <div className="linkss">
             
-            <Link to='/'>Inicio</Link>
+            <Link to='/'>Início</Link>
          
             <Link to="/sobre">Sobre</Link>
          

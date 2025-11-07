@@ -54,10 +54,10 @@
 
 .error-message {
   color: red;
-  background: #ffecec;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .cad-form {
@@ -121,6 +121,7 @@
 }
 
 .login-link a {
+  
   color: #a36217;
   text-decoration: none;
 }
@@ -141,3 +142,6 @@
   }
 }
 
+#perg-cad{
+  font-size: 16px;
+}

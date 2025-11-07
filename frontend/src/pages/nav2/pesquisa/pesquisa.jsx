@@ -45,7 +45,7 @@ export default function Pesquisa() {
       />
 
       <button id="btn_voltar" onClick={() => navigate(-1)}>
-        ⬅ Voltar
+         Voltar
       </button>
 
       {loading && <p className="status">Carregando pets...</p>}

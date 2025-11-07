@@ -1,16 +1,23 @@
 import React from "react";
 import "./sobre.scss";
+import { Link } from "react-router";
+import Footer from "../../component/footer/footer";
+import { useNavigate } from "react-router-dom";
 
 export function Sobre() {
+  
+  const navigate = useNavigate();
+
   return (
 
     <div className="container">
       <header className="topo">
-        <h1>🐾 Laços & Patas</h1>
-        <nav>
-          <a href="#contato">Contato</a>
-          <button>Doar</button>
-        </nav>
+
+      <button id="btn_voltar" onClick={() => navigate(-1)}>
+         Voltar
+      </button>
+
+        <h1> Laços & Patas</h1>
       </header>
 
       <section id="sobre" className="sobre">
@@ -44,14 +51,12 @@ export function Sobre() {
         <p>
           <b>
             Junte-se a nós: adote, apadrinhe, torne-se voluntário ou doe. Vamos
-            juntos espalhar amor e cuidado! ❤️
+            juntos espalhar amor e cuidado! 
           </b>
         </p>
       </section>
 
-      <footer className="rodape">
-        <p>© {new Date().getFullYear()} Amigos de Patas — Todos os direitos reservados</p>
-      </footer>
+      <Footer/>
     </div>
 
   );
