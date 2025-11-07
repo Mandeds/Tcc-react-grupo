@@ -16,7 +16,7 @@ export default function Inicio() {
 
                 <div className="Primeira_parte">
 
-                    {/* Primeira parte*/}
+                    
 
                     <h1 id="Titu_inicio">Laços & Patas</h1>
                     <div className="inico_ima">
