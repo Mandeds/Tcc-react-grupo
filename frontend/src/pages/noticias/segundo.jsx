@@ -1,7 +1,8 @@
 import { Link } from "react-router"
-import "./segundo.scss"
 import React, { useState, useEffect } from 'react';
 import './segundo.scss';
+import Cabecalho1 from "../../component/cabecalho1/cabecalho1";
+
 
 export default function Noticias() {
     const [noticias, setNoticias] = useState([]);
@@ -135,8 +136,12 @@ export default function Noticias() {
     }
 
     return (
+
+
         <div className="noticias-container">
-            <div className="noticias-header">
+            <Cabecalho1/>
+            
+             <div className="noticias-header">
                 <h1>Notícias sobre Pets e Adoção</h1>
                 <p>Fique por dentro das últimas novidades do mundo animal</p>
             </div>
