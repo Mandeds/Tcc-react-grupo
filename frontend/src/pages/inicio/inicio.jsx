@@ -45,8 +45,8 @@ export default function Inicio() {
                     <img src="src/assets/images/imgInicio2/pg1_3.png" width={200} alt="imagem_segundaparte_3" className="img2_1" />
                 </div>
 
-        <div className="Terceira_parte">
-                
+                <div className="Terceira_parte">
+
                 <h1>OFERTAS LEGAIS</h1>
 
                 <CardD

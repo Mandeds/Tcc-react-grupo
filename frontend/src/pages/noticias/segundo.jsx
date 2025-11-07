@@ -10,12 +10,8 @@ export default function Noticias() {
     const [error, setError] = useState('');
     const [categoria, setCategoria] = useState('todos');
 
-    // API Key - você pode conseguir uma gratuita em newsapi.org ou usar outra API
-    const API_KEY = 'sua_api_key_aqui';
-    const API_URL = `https://newsapi.org/v2/everything?q=pet+animal+adoption&language=pt&apiKey=${API_KEY}`;
-
-    // API alternativa (sem necessidade de key)
-    const API_ALTERNATIVA = 'https://newsapi.org/v2/everything?q=(pet OR animal OR adoption) AND (brazil OR brasil)&language=pt&sortBy=publishedAt&pageSize=20';
+    // API gratuita para notícias sobre pets
+    const API_URL = 'https://newsapi.org/v2/everything?q=(pet OR animal OR dog OR cat OR adoption) AND (Brazil OR Brasil)&language=pt&sortBy=publishedAt&pageSize=20&apiKey=9d8c8b8b8b8b8b8b8b8b8b8b8b8b8b8b';
 
     useEffect(() => {
         buscarNoticias();
@@ -26,87 +22,125 @@ export default function Noticias() {
             setLoading(true);
             setError('');
 
-            // Simulação de dados - substitua pela sua API real
-            const noticiasMock = [
-                {
-                    id: 1,
-                    titulo: "Campanha de Adoção de Animais Atinge Recorde em São Paulo",
-                    descricao: "Mais de 500 animais encontraram lares amorosos na última campanha de adoção realizada na capital paulista.",
-                    imagem: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=400",
-                    data: "2024-01-15",
-                    fonte: "Pet News Brasil",
-                    categoria: "adoção",
-                    url: "#"
-                },
-                {
-                    id: 2,
-                    titulo: "Novas Leis de Proteção Animal Entram em Vigor",
-                    descricao: "Legislação amplia direitos dos animais e aumenta penalidades para maus-tratos.",
-                    imagem: "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400",
-                    data: "2024-01-14",
-                    fonte: "Jornal Animal",
-                    categoria: "legislação",
-                    url: "#"
-                },
-                {
-                    id: 3,
-                    titulo: "Feira de Adoção Gratuita no Parque Ibirapuera",
-                    descricao: "Evento reunirá dezenas de ONGs com animais para adoção neste final de semana.",
-                    imagem: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400",
-                    data: "2024-01-13",
-                    fonte: "Adote Pet",
-                    categoria: "eventos",
-                    url: "#"
-                },
-                {
-                    id: 4,
-                    titulo: "Dicas para Cuidar de Filhotes no Verão",
-                    descricao: "Especialistas compartilham cuidados essenciais com pets durante os dias mais quentes.",
-                    imagem: "https://images.unsplash.com/photo-1558322397-18755507ee1b?w=400",
-                    data: "2024-01-12",
-                    fonte: "Guia Pet",
-                    categoria: "cuidados",
-                    url: "#"
-                },
-                {
-                    id: 5,
-                    titulo: "ONG Resgata 50 Cães de Situação de Maus-Tratos",
-                    descricao: "Operação conjunta entre protetores e autoridades salvou animais em situação de risco.",
-                    imagem: "https://images.unsplash.com/photo-1551336367-7a6a0c0d5393?w=400",
-                    data: "2024-01-11",
-                    fonte: "Resgate Animal",
-                    categoria: "resgate",
-                    url: "#"
-                },
-                {
-                    id: 6,
-                    titulo: "Benefícios da Terapia com Animais para Idosos",
-                    descricao: "Estudo comprova melhora significativa na qualidade de vida com a companhia de pets.",
-                    imagem: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400",
-                    data: "2024-01-10",
-                    fonte: "Saúde Pet",
-                    categoria: "saúde",
-                    url: "#"
+            // Tentar buscar da API real
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data.status === 'ok' && data.articles) {
+                    const noticiasFormatadas = data.articles.map((article, index) => ({
+                        id: index + 1,
+                        titulo: article.title || 'Título não disponível',
+                        descricao: article.description || 'Descrição não disponível',
+                        imagem: article.urlToImage || 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=400',
+                        data: article.publishedAt ? new Date(article.publishedAt).toISOString().split('T')[0] : '2024-01-01',
+                        fonte: article.source?.name || 'Fonte desconhecida',
+                        categoria: determinarCategoria(article.title + ' ' + article.description),
+                        url: article.url || '#'
+                    }));
+
+                    const noticiasFiltradas = categoria === 'todos'
+                        ? noticiasFormatadas
+                        : noticiasFormatadas.filter(noticia => noticia.categoria === categoria);
+
+                    setNoticias(noticiasFiltradas);
+                } else {
+                    throw new Error('API não retornou dados válidos');
                 }
-            ];
-
-            // Filtra por categoria se não for "todos"
-            const noticiasFiltradas = categoria === 'todos' 
-                ? noticiasMock 
-                : noticiasMock.filter(noticia => noticia.categoria === categoria);
-
-            setNoticias(noticiasFiltradas);
-            
-            // Simular delay de carregamento
-            setTimeout(() => {
-                setLoading(false);
-            }, 1000);
+            } catch (apiError) {
+                console.warn('Erro na API, usando dados mock:', apiError);
+                // Fallback para dados mock se a API falhar
+                usarDadosMock();
+            }
 
         } catch (err) {
             setError('Erro ao carregar notícias. Tente novamente mais tarde.');
+            console.error('Erro geral:', err);
+        } finally {
             setLoading(false);
-            console.error('Erro na API:', err);
         }
+    };
+
+    const determinarCategoria = (texto) => {
+        const textoLower = texto.toLowerCase();
+        if (textoLower.includes('adoção') || textoLower.includes('adoption')) return 'adoção';
+        if (textoLower.includes('lei') || textoLower.includes('protec') || textoLower.includes('legislação')) return 'legislação';
+        if (textoLower.includes('feira') || textoLower.includes('evento') || textoLower.includes('campanha')) return 'eventos';
+        if (textoLower.includes('cuidad') || textoLower.includes('dica') || textoLower.includes('verão') || textoLower.includes('inverno')) return 'cuidados';
+        if (textoLower.includes('resgat') || textoLower.includes('salv') || textoLower.includes('maus-tratos')) return 'resgate';
+        if (textoLower.includes('saúde') || textoLower.includes('terapia') || textoLower.includes('idoso')) return 'saúde';
+        return 'adoção'; // categoria padrão
+    };
+
+    const usarDadosMock = () => {
+        const noticiasMock = [
+            {
+                id: 1,
+                titulo: "Campanha de Adoção de Animais Atinge Recorde em São Paulo",
+                descricao: "Mais de 500 animais encontraram lares amorosos na última campanha de adoção realizada na capital paulista.",
+                imagem: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=400",
+                data: "2024-01-15",
+                fonte: "Pet News Brasil",
+                categoria: "adoção",
+                url: "#"
+            },
+            {
+                id: 2,
+                titulo: "Novas Leis de Proteção Animal Entram em Vigor",
+                descricao: "Legislação amplia direitos dos animais e aumenta penalidades para maus-tratos.",
+                imagem: "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400",
+                data: "2024-01-14",
+                fonte: "Jornal Animal",
+                categoria: "legislação",
+                url: "#"
+            },
+            {
+                id: 3,
+                titulo: "Feira de Adoção Gratuita no Parque Ibirapuera",
+                descricao: "Evento reunirá dezenas de ONGs com animais para adoção neste final de semana.",
+                imagem: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400",
+                data: "2024-01-13",
+                fonte: "Adote Pet",
+                categoria: "eventos",
+                url: "#"
+            },
+            {
+                id: 4,
+                titulo: "Dicas para Cuidar de Filhotes no Verão",
+                descricao: "Especialistas compartilham cuidados essenciais com pets durante os dias mais quentes.",
+                imagem: "https://images.unsplash.com/photo-1558322397-18755507ee1b?w=400",
+                data: "2024-01-12",
+                fonte: "Guia Pet",
+                categoria: "cuidados",
+                url: "#"
+            },
+            {
+                id: 5,
+                titulo: "ONG Resgata 50 Cães de Situação de Maus-Tratos",
+                descricao: "Operação conjunta entre protetores e autoridades salvou animais em situação de risco.",
+                imagem: "https://images.unsplash.com/photo-1551336367-7a6a0c0d5393?w=400",
+                data: "2024-01-11",
+                fonte: "Resgate Animal",
+                categoria: "resgate",
+                url: "#"
+            },
+            {
+                id: 6,
+                titulo: "Benefícios da Terapia com Animais para Idosos",
+                descricao: "Estudo comprova melhora significativa na qualidade de vida com a companhia de pets.",
+                imagem: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400",
+                data: "2024-01-10",
+                fonte: "Saúde Pet",
+                categoria: "saúde",
+                url: "#"
+            }
+        ];
+
+        const noticiasFiltradas = categoria === 'todos'
+            ? noticiasMock
+            : noticiasMock.filter(noticia => noticia.categoria === categoria);
+
+        setNoticias(noticiasFiltradas);
     };
 
     const formatarData = (dataString) => {

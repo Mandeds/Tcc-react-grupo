@@ -1,19 +1,44 @@
 import './login.scss';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
+import axios from 'axios';
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email === "teste@gmail.com" && senha === "123456") {
-      alert("Login realizado com sucesso!");
-    } else {
-      setErro("Email ou senha inválidos");
+    setLoading(true);
+    setErro("");
+
+    try {
+      const response = await axios.post('http://localhost:5000/login', {
+        email: email,
+        senha: senha
+      });
+
+      if (response.data.token) {
+        // Armazenar token no localStorage
+        localStorage.setItem('token', response.data.token);
+        alert("Login realizado com sucesso!");
+        navigate("/naveg"); // Redirecionar para navegação
+      }
+    } catch (error) {
+      console.error("Erro no login:", error);
+      if (error.response?.data?.error) {
+        setErro(error.response.data.error);
+      } else if (error.code === 'NETWORK_ERROR' || error.message.includes('Network Error')) {
+        setErro("Erro de conexão. Verifique se o servidor está rodando.");
+      } else {
+        setErro("Erro ao realizar login. Tente novamente.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -57,7 +82,19 @@ export default function Login() {
           </div>
 
           
-          <Link type="submit" className="login-button" to='/naveg'>Entrar</Link>
+          <button
+            type="submit"
+            className="login-button"
+            disabled={loading}
+            style={{
+              background: loading ? "#ccc" : undefined,
+              cursor: loading ? "not-allowed" : "pointer"
+            }}
+          >
+            {loading ? "Entrando..." : "Entrar"}
+          </button>
+
+          <Link to="/Naveg">Entrar</Link>
 
           <div className="login-register">
             <p>Não tem conta?</p>

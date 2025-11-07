@@ -7,12 +7,16 @@ id_admin int primary key auto_increment,
 email varchar(255),
 senha varchar(255),
 biografia varchar(500),
-telefone int,  
-cidade varchar (50), 
+telefone int,
+cidade varchar (50),
 ehOng boolean,
 foto_perfil varchar(100),
 dt_criacao date
 );
+
+-- Inserir admin padrão
+INSERT INTO administrador (email, senha, biografia, telefone, cidade, ehOng, foto_perfil, dt_criacao)
+VALUES ('admin@admin.com', MD5('admin123'), 'Administrador do sistema', 123456789, 'Cidade Admin', false, '', CURDATE());
 
 
 create table usuario(
@@ -25,7 +29,8 @@ telefone int,
 cidade varchar (50),
 ehOng boolean,
 foto_perfil varchar(100),
-dt_criacao date
+dt_criacao date,
+banido boolean default false
 );
 
 create table seguidor (

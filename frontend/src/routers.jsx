@@ -7,6 +7,9 @@ import Cadastro from "./pages/cadastro/cadastro.jsx"
 import Politica from "./component/footer/adicionados/politicas.jsx"
 import Naveg from "./pages/nav2/navegarPost/naveg.jsx"
 import Sobre from "./pages/sobre/sobre.jsx"
+import Admin from "./pages/admin/admin.jsx"
+import CriarPost from "./pages/criarPost/criarPost.jsx"
+import Perfil from "./pages/perfil/perfil.jsx"
 
 export default function Navegacao (){
 
@@ -19,6 +22,9 @@ export default function Navegacao (){
             <Route path="/politica" element ={<Politica/>} />
             <Route path="/Naveg" element = {<Naveg/>}/>
             <Route path="/sobre" element = {<Sobre/>}/>
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/criar-post" element={<CriarPost />} />
+            <Route path="/perfil" element={<Perfil />} />
         </Routes>
     </BrowserRouter>)
 
