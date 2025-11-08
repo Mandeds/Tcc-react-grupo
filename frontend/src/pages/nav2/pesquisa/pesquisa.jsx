@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import CabecalhoNav from "../../../component/cabecalhonav/cabecalhonav";
+import BackButton from "../../../component/backButton/backButton";
 import "./pesquisa.scss";
 
 export default function Pesquisa() {
@@ -75,6 +76,7 @@ export default function Pesquisa() {
     return (
       <div className="pesquisa-container">
         <CabecalhoNav />
+        <BackButton />
         <div className="loading">
           <div className="spinner"></div>
           <p>Buscando pets...</p>
@@ -86,6 +88,7 @@ export default function Pesquisa() {
   return (
     <div className="pesquisa-container">
       <CabecalhoNav />
+      <BackButton />
 
       <div className="pesquisa-content">
         <h1 className="pesquisa-title">🔍 Encontre seu Novo Amigo</h1>

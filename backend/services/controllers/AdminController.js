@@ -58,4 +58,37 @@ endpoints.delete('/usuarios/:id', async (req, res) => {
     }
 });
 
+// Buscar sugestões dos usuários
+endpoints.get('/sugestoes', async (req, res) => {
+    try {
+        const comando = `
+            SELECT sa.id_sugestao, sa.mensagem, sa.dt_criacao,
+                   u.nm_usuario, u.email, u.foto_perfil
+            FROM sugestoes_admin sa
+            JOIN usuario u ON sa.id_usuario = u.id_usuario
+            ORDER BY sa.dt_criacao DESC
+        `;
+
+        const [sugestoes] = await repo.connection.query(comando);
+        res.json(sugestoes);
+    } catch (error) {
+        console.error('Erro ao buscar sugestões:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
+// Deletar sugestão
+endpoints.delete('/sugestoes/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const comando = `DELETE FROM sugestoes_admin WHERE id_sugestao = ?`;
+        await repo.connection.query(comando, [id]);
+        res.json({ message: 'Sugestão deletada com sucesso' });
+    } catch (error) {
+        console.error('Erro ao deletar sugestão:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
 export default endpoints;

@@ -1,19 +1,41 @@
-*{
-  margin: 0%;
-  padding: 0%;
+/* Reset e variáveis globais */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: #F4EDE5;
-  color: black;
+:root {
+  --primary-color: #A36217;
+  --secondary-color: #D3A065;
+  --accent-color: #c57c6d;
+  --light-bg: #F4EDE5;
+  --cream-bg: #fff8f3;
+  --beige-border: #e5c8b0;
+  --text-dark: #272727;
+  --text-light: #666;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --border-radius: 15px;
+  --transition: all 0.3s ease;
 }
 
-a{
-  color: #272727;
+body {
+  background: var(--light-bg);
+  color: var(--text-dark);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--text-dark);
   font-size: 18px;
   text-decoration: none;
   margin: 10px;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,169 +43,347 @@ a{
     background: #622150;
     color: white;
   }
-  a{
+  a {
     color: rgb(255, 236, 249);
   }
 }
 
+/* Primeira Parte - Hero Section */
 .Primeira_parte {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 20px;
-  margin: 0 auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 40px;
+  margin: 20px auto;
+  max-width: 1400px;
   text-align: center;
-  border: 3px solid #e5c8b0;
-  border-radius: 15px;
-  background: #fff8f3;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-  #Titu_inicio{
-    font-size: 50px;
-  }
-
-    #bloq {
-    width: 50%;
-    height: 30px;
-    font-size: 2rem;
-  }
-
-  .inico_ima{
-    display: flex;
-    flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-    width: 100%;
-    .imagem_1 {
-    width: 30vw;
-    max-width: 300px;
-    border-radius: 10px;
-    object-fit: cover;
-    margin: 5px;
-  }
-
-  .imagem_2 {
-    width: 30vw;
-    max-width: 377px;
-    border-radius: 10px;
-    object-fit: cover;
-    margin: 5px;
-  }
-
+  border: 3px solid var(--beige-border);
+  border-radius: var(--border-radius);
+  background: var(--cream-bg);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
 }
-.imagem_3 {
+
+.Primeira_parte::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+  50% { transform: translate(-50%, -50%) rotate(180deg); }
+}
+
+#Titu_inicio {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#bloq {
+  width: min(80%, 600px);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--text-dark);
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.inico_ima {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
   width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-  margin-top: 10px;
+  max-width: 1000px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out 0.4s both;
 }
 
-  h1 {
-    width: 100%;
-    font-size: 2.8rem;
-    color: #c57c6d;
-    margin-bottom: 10px;
-  }
-
-  
-
-  @media (max-width: 1024px) {
-    .imagem_1 { width: 22vw; max-width: 200px; }
-    .imagem_2 { width: 35vw; max-width: 320px; }
-    .imagem_3 { width: 90%; max-width: 600px; }
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-
-    .imagem_1, .imagem_2, .imagem_3 {
-      width: 85%;
-      max-width: 450px;
-    }
-
-    h3 {
-      text-align: center;
-      max-width: 90%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 15px;
-
-    .imagem_1, .imagem_2, .imagem_3 { width: 95%; }
-    h1 { font-size: 2.2rem; }
-  }
-}
-
-
-.Segunda_Parte {
-  background-color: #D3A065;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-    background: #d3a065;
-  border: 3px solid #e5c8b0;
+.imagem_1, .imagem_2 {
+  width: 100%;
+  max-width: 350px;
+  height: 200px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 2px solid var(--beige-border);
+}
 
-  p,
-  h2 {
-    width: 80%;
-    max-width: 600px;
-    margin: 10px auto;
+.imagem_1:hover, .imagem_2:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.imagem_3 {
+  width: min(90%, 800px);
+  height: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin: 20px auto 0;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--beige-border);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out 0.6s both;
+  transition: var(--transition);
+}
+
+.imagem_3:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .inico_ima {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
-  .img2_1 {
-    width: 30vw;
-    max-width: 300px;
-    height: auto;
-    margin: 10px;
-    border-radius: 10px;
-    object-fit: cover;
+  .imagem_1, .imagem_2 {
+    height: 180px;
+  }
+
+  .imagem_3 {
+    height: 250px;
   }
 }
 
 @media (max-width: 768px) {
-
-    h3 {
-      position: static;
-      margin: 20px 0;
-      text-align: center;
-      width: 80%;
-    }
+  .Primeira_parte {
+    padding: 30px 15px;
+    margin: 10px;
   }
 
-  .Segunda_Parte {
-    flex-direction: column;
-    align-items: center;
-
-    .img2_1 {
-      width: 80%;
-      max-width: 400px;
-    }
+  .inico_ima {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
+  .imagem_1, .imagem_2, .imagem_3 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+  }
 
-@media (max-width: 480px) {
-  .Segunda_Parte .img2_1 {
-    width: 90%;
+  .imagem_3 {
+    height: 200px;
+    margin-top: 15px;
+  }
+
+  #bloq {
+    width: 95%;
   }
 }
 
-.Terceira_parte{
+@media (max-width: 480px) {
+  .Primeira_parte {
+    padding: 20px 10px;
+    margin: 5px;
+  }
+
+  #Titu_inicio {
+    font-size: 2rem;
+  }
+
+  #bloq {
+    font-size: 1rem;
+  }
+
+  .imagem_1, .imagem_2, .imagem_3 {
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .imagem_3 {
+    height: 150px;
+  }
+}
+
+/* Segunda Parte - Sobre adoção */
+.Segunda_Parte {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #c57c6d 100%);
+  padding: 20px 40px;
+  margin: 20px auto;
+  max-width: 1400px;
+  text-align: center;
+  border: 3px solid var(--beige-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.Segunda_Parte::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="70" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.3;
+}
+
+.Segunda_Parte h2 {
+  color: white;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out;
+}
+
+.Segunda_Parte p {
+  color: white;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  width: min(90%, 700px);
+  margin: 0 auto 30px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.img2_1 {
+  width: min(80%, 300px);
+  height: auto;
+  margin: 10px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+
+
+
+/* Responsividade para segunda parte */
+@media (max-width: 768px) {
+  .Segunda_Parte {
+    padding: 30px 15px;
+    margin: 10px;
+  }
+
+  .img2_1 {
+    width: min(90%, 400px);
+    margin: 15px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .Segunda_Parte {
+    padding: 20px 10px;
+  }
+
+  .Segunda_Parte h2 {
+    font-size: 1.8rem;
+  }
+
+  .Segunda_Parte p {
+    font-size: 1rem;
+    width: 95%;
+  }
+
+  .img2_1 {
+    width: 95%;
+    border-radius: 10px;
+  }
+}
+
+/* Terceira Parte - Ofertas */
+.Terceira_parte {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 10px;
-  padding: 20px;
-  margin: 0 auto;
+  gap: 20px;
+  padding: 20px 40px;
+  margin: 20px auto;
+  max-width: 1400px;
   text-align: center;
-  border: 3px solid #e5c8b0;
-  border-radius: 15px;
-  background: #fff8f3;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--beige-border);
+  border-radius: var(--border-radius);
+  background: var(--cream-bg);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.Terceira_parte::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(197,124,109,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.Terceira_parte h1 {
+  width: 100%;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--accent-color);
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Responsividade para terceira parte */
+@media (max-width: 768px) {
+  .Terceira_parte {
+    padding: 30px 15px;
+    margin: 10px;
+    gap: 15px;
+  }
+
+  .Terceira_parte h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Terceira_parte {
+    padding: 20px 10px;
+  }
+
+  .Terceira_parte h1 {
+    font-size: 1.8rem;
+  }
 }

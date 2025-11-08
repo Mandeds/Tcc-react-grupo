@@ -16,6 +16,40 @@
   margin-bottom: 20px;
 }
 
+/* Abas de navegação */
+.admin-tabs {
+  display: flex;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.tab-button:hover {
+  color: #333;
+  background: #f5f5f5;
+}
+
+.tab-button.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+}
+
+.aba-content {
+  padding: 20px 0;
+}
+
+/* Lista de usuários */
 .usuarios-list {
   display: flex;
   flex-direction: column;
@@ -82,4 +116,68 @@
 
 .deletar:hover {
   background: #444;
+}
+
+/* Lista de sugestões */
+.sugestoes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sugestao-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sugestao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.sugestao-header .usuario-info h4 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.sugestao-header .usuario-info p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.sugestao-date {
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.sugestao-content {
+  margin-bottom: 15px;
+}
+
+.sugestao-content p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.sugestao-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.empty-sugestoes {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.empty-sugestoes p {
+  font-size: 16px;
 }

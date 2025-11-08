@@ -1,7 +1,6 @@
 import './login.scss';
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser, FaLock } from "react-icons/fa";
 import axios from 'axios';
 
 export default function Login() {
@@ -9,6 +8,10 @@ export default function Login() {
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
+  const [forgotLoading, setForgotLoading] = useState(false);
+  const [forgotMessage, setForgotMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -42,35 +45,53 @@ export default function Login() {
     }
   };
 
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    setForgotLoading(true);
+    setForgotMessage("");
+
+    try {
+      await axios.post('http://localhost:5000/forgot-password', {
+        email: forgotEmail
+      });
+
+      setForgotMessage("Email de recuperação enviado com sucesso!");
+      setForgotEmail("");
+    } catch (error) {
+      console.error("Erro no forgot-password:", error);
+      if (error.response?.data?.error) {
+        setForgotMessage(error.response.data.error);
+      } else {
+        setForgotMessage("Erro ao enviar email. Tente novamente.");
+      }
+    } finally {
+      setForgotLoading(false);
+    }
+  };
+
   return (
     <div className="login-container">
       <div className="login-box">
         <div className="login-icon">
-          <FaUser color="white" size={35} />
+          <span>Login</span>
         </div>
 
         <form onSubmit={handleLogin} className="login-form">
-          <div className="input-group">
-            <FaUser className="input-icon" />
-            <input
-              type="email"
-              placeholder="Gmail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="login-input"
-            />
-          </div>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="login-input"
+          />
 
-          <div className="input-group">
-            <FaLock className="input-icon" />
-            <input
-              type="password"
-              placeholder="Password"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              className="login-input"
-            />
-          </div>
+          <input
+            type="password"
+            placeholder="Senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            className="login-input"
+          />
 
           {erro && <p className="login-error">{erro}</p>}
 
@@ -78,10 +99,16 @@ export default function Login() {
             <label>
               <input type="checkbox" /> Relembrar
             </label>
-            <Link to="#">Esqueceu a senha?</Link>
+            <button
+              type="button"
+              className="forgot-password-link"
+              onClick={() => setShowForgotPassword(true)}
+            >
+              Esqueceu a senha?
+            </button>
           </div>
 
-          
+
           <button
             type="submit"
             className="login-button"
@@ -101,6 +128,43 @@ export default function Login() {
             <Link to="/cadastro">Fazer cadastro</Link>
           </div>
         </form>
+
+        {/* Forgot Password Modal */}
+        {showForgotPassword && (
+          <div className="modal-overlay" onClick={() => setShowForgotPassword(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h3>Recuperar Senha</h3>
+              <p>Digite seu email para receber um link de recuperação:</p>
+              <form onSubmit={handleForgotPassword}>
+                <input
+                  type="email"
+                  placeholder="Seu email"
+                  value={forgotEmail}
+                  onChange={(e) => setForgotEmail(e.target.value)}
+                  className="login-input"
+                  required
+                />
+                {forgotMessage && <p className={`forgot-message ${forgotMessage.includes('sucesso') ? 'success' : 'error'}`}>{forgotMessage}</p>}
+                <div className="modal-buttons">
+                  <button
+                    type="submit"
+                    className="login-button"
+                    disabled={forgotLoading}
+                  >
+                    {forgotLoading ? "Enviando..." : "Enviar Email"}
+                  </button>
+                  <button
+                    type="button"
+                    className="cancel-button"
+                    onClick={() => setShowForgotPassword(false)}
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

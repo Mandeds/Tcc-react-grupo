@@ -127,3 +127,20 @@ dt_criacao date,
 FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
+create table sugestoes_admin (
+id_sugestao int primary key auto_increment,
+mensagem text,
+id_usuario int,
+dt_criacao date,
+FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+
+create table password_reset_tokens (
+id_token int primary key auto_increment,
+email varchar(255),
+token varchar(255) unique,
+expires_at datetime,
+created_at datetime default current_timestamp,
+FOREIGN KEY (email) REFERENCES usuario(email) ON DELETE CASCADE
+);
+

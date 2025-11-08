@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./chat.scss";
 import CabecalhoNav from "../../../component/cabecalhonav/cabecalhonav";
+import BackButton from "../../../component/backButton/backButton";
 
 export default function Chat() {
   const [conversas, setConversas] = useState([]);
@@ -72,6 +73,7 @@ export default function Chat() {
     return (
       <div className="chat-container">
         <CabecalhoNav />
+        <BackButton />
         <div className="chat-loading">
           <div className="loading-spinner"></div>
           <p>Carregando conversas...</p>
@@ -83,6 +85,7 @@ export default function Chat() {
   return (
     <div className="chat-container">
       <CabecalhoNav />
+      <BackButton />
 
       <div className="chat-content">
         <div className="chat-header">

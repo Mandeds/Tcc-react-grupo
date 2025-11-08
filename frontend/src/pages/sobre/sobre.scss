@@ -1,26 +1,23 @@
-.conteiner {
+.container {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(white, #ffe3c1);
-    color: #5a4a42; 
-  
+    color: #5a4a42;
+
        .logo {
         font-size: 30px;
       }
-  
+
       nav {
         display: flex;
         gap: 20px;
-  
+
         a {
           font-weight: 500;
           cursor: pointer;
           transition: 0.2s;
-  
-          &:hover {
-            color: #d97706;
-          }
-        
-  
+
+
+
         button {
           background: #f59e0b;
           border: none;
@@ -30,14 +27,12 @@
           font-weight: 600;
           cursor: pointer;
           transition: 0.2s;
-  
-          &:hover {
-            background: #ea580c;
-          }
+
+
         }
       }
     }
-  
+
     .sobre {
       max-width: 900px;
       margin: 40px auto;
@@ -45,27 +40,130 @@
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  
+
       h2 {
         color: #b45309;
         margin-bottom: 15px;
       }
-  
+
       p {
         line-height: 1.6;
         margin-bottom: 10px;
       }
     }
-  
+
+    .suporte {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+      h2 {
+        color: #b45309;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .suporte-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+
+        .suporte-info {
+          h3 {
+            color: #b45309;
+            margin-bottom: 15px;
+          }
+
+          p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+          }
+
+          ul {
+            margin-left: 20px;
+
+            li {
+              margin-bottom: 8px;
+              line-height: 1.5;
+            }
+          }
+        }
+
+        .suporte-form {
+          h3 {
+            color: #b45309;
+            margin-bottom: 15px;
+          }
+
+          form {
+            textarea {
+              width: 100%;
+              padding: 12px;
+              border: 2px solid #ddd;
+              border-radius: 8px;
+              font-family: inherit;
+              font-size: 14px;
+              resize: vertical;
+              margin-bottom: 15px;
+              transition: border-color 0.3s;
+
+              &:focus {
+                outline: none;
+                border-color: #f59e0b;
+              }
+            }
+
+            button {
+              background: #f59e0b;
+              border: none;
+              padding: 12px 24px;
+              border-radius: 20px;
+              color: white;
+              font-weight: 600;
+              cursor: pointer;
+              transition: 0.3s;
+              width: 100%;
+
+              &:hover:not(:disabled) {
+                background: #d97706;
+              }
+
+              &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+              }
+            }
+          }
+
+          .mensagem-sucesso {
+            margin-top: 15px;
+            padding: 10px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
     .adote {
       text-align: center;
       padding: 40px 20px;
-  
+
       h2 {
         color: #b45309;
         margin-bottom: 20px;
       }
-  
+
       .cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -73,7 +171,7 @@
         justify-content: center;
         max-width: 1000px;
         margin: 0 auto;
-  
+
         .card {
           background: white;
           border-radius: 15px;
@@ -83,27 +181,25 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-  
-          &:hover {
-            transform: translateY(-5px);
-          }
-  
+
+
+
           img {
             width: 100%;
             border-radius: 10px;
             margin-bottom: 10px;
           }
-  
+
           h3 {
             color: #b45309;
             margin-bottom: 5px;
           }
-  
+
           p {
             font-size: 14px;
             margin-bottom: 10px;
           }
-  
+
           button {
             background: #f59e0b;
             border: none;
@@ -112,15 +208,13 @@
             color: white;
             font-weight: 600;
             cursor: pointer;
-  
-            &:hover {
-              background: #ea580c;
-            }
+
+
           }
         }
       }
     }
-  
-   
+
+
   }
   

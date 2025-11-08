@@ -55,3 +55,61 @@ export async function LoginAdmin(email, senha) {
     return null;
   }
 }
+
+export async function createResetToken(email, token, expiresAt) {
+  const comando = `
+    INSERT INTO password_reset_tokens (email, token, expires_at)
+    VALUES (?, ?, ?)
+    ON DUPLICATE KEY UPDATE token = VALUES(token), expires_at = VALUES(expires_at);
+  `;
+
+  await connection.query(comando, [email, token, expiresAt]);
+}
+
+export async function getResetToken(token) {
+  const comando = `
+    SELECT email, expires_at
+    FROM password_reset_tokens
+    WHERE token = ? AND expires_at > NOW();
+  `;
+
+  const [linhas] = await connection.query(comando, [token]);
+
+  if (linhas.length > 0) {
+    return linhas[0];
+  } else {
+    return null;
+  }
+}
+
+export async function deleteResetToken(token) {
+  const comando = `
+    DELETE FROM password_reset_tokens WHERE token = ?;
+  `;
+
+  await connection.query(comando, [token]);
+}
+
+export async function updatePassword(email, newPassword) {
+  const comando = `
+    UPDATE usuario SET senha = MD5(?) WHERE email = ?;
+  `;
+
+  await connection.query(comando, [newPassword, email]);
+}
+
+export async function getUserByEmail(email) {
+  const comando = `
+    SELECT id_usuario, nm_usuario, email
+    FROM usuario
+    WHERE email = ?;
+  `;
+
+  const [linhas] = await connection.query(comando, [email]);
+
+  if (linhas.length > 0) {
+    return linhas[0];
+  } else {
+    return null;
+  }
+}

@@ -117,4 +117,27 @@ endpoints.get('/conversas', async (req, res) => {
     }
 });
 
+// Enviar mensagem de suporte (sugestão para admin)
+endpoints.post('/suporte', async (req, res) => {
+    const { mensagem } = req.body;
+    const idUsuario = req.user.id_usuario || req.user.id_admin;
+
+    if (!mensagem || mensagem.trim().length === 0) {
+        return res.status(400).json({ error: 'Mensagem não pode estar vazia' });
+    }
+
+    try {
+        const comando = `
+            INSERT INTO sugestoes_admin (mensagem, id_usuario, dt_criacao)
+            VALUES (?, ?, NOW())
+        `;
+
+        const [result] = await connection.query(comando, [mensagem.trim(), idUsuario]);
+        res.json({ id: result.insertId, message: 'Sugestão enviada com sucesso' });
+    } catch (error) {
+        console.error('Erro ao enviar sugestão:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
 export default endpoints;

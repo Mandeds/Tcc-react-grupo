@@ -82,10 +82,7 @@
   transition: all 0.3s ease;
 }
 
-.editar-btn:hover {
-  background: #8B4513;
-  transform: translateY(-2px);
-}
+
 
 .editar-form {
   background: white;
@@ -160,10 +157,7 @@
   color: white;
 }
 
-.salvar-btn:hover {
-  background: #8B4513;
-  transform: translateY(-2px);
-}
+
 
 .cancelar-btn {
   background: #FFC9C9;
@@ -171,10 +165,7 @@
   border: 2px solid #FF9999;
 }
 
-.cancelar-btn:hover {
-  background: #FFB3B3;
-  transform: translateY(-2px);
-}
+
 
 .perfil-posts {
   background: white;
@@ -204,10 +195,7 @@
   position: relative;
 }
 
-.post-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
+
 
 .post-card h3 {
   color: #A36217;
@@ -242,10 +230,7 @@
   transition: all 0.3s ease;
 }
 
-.delete-post-btn:hover {
-  background: #CC0000;
-  transform: scale(1.05);
-}
+
 
 .no-posts {
   text-align: center;

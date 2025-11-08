@@ -36,16 +36,6 @@
     position: relative;
 }
 
-.footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: #FBF0B9;
-    border-radius: 1px;
-}
 
 .footer-section p,
 .footer-section a {
@@ -94,12 +84,7 @@
     font-size: 18px;
 }
 
-.social-link:hover {
-    background: #FBF0B9;
-    color: #A36217;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
+
 
 .footer-bottom {
     text-align: center;

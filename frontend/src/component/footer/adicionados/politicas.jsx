@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./politica.scss"; // ou o nome do seu arquivo CSS
+import BackButton from "../../backButton/backButton";
+import "./politica.scss";
 
 export default function Politica() {
     return (
         <div className="politica-container">
+            <BackButton />
             <div className="politica-header">
                 <h1>Termos e Políticas do Laços e Patas</h1>
                 <p className="last-update">Última atualização: 03 de outubro de 2025</p>

@@ -122,7 +122,7 @@ function Perfil() {
           <p className="cidade">{usuario.cidade}</p>
           <p className="ong">{usuario.ehOng ? 'ONG' : 'Usuário'}</p>
           <div className="likes-stats">
-            <span className="hearts-count">❤️ {likesCount}</span>
+            <span className="hearts-count">{likesCount}</span>
             <span className="stats-label">likes recebidos</span>
           </div>
         </div>
