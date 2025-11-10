@@ -8,7 +8,7 @@ import crypto from 'crypto';
 const endpoints = Router();
 
 // Configuração do nodemailer (usando Gmail como exemplo)
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER || 'your-email@gmail.com',

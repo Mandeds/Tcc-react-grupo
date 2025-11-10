@@ -175,7 +175,7 @@ function Cadastro() {
         </form>
 
         <div className="cadastro-register">
-          <p>Já tem conta? <Link to="/">Entrar</Link></p>
+          <p>Já tem conta? <Link to="/login">Login</Link></p>
         </div>
       </div>
     </div>
