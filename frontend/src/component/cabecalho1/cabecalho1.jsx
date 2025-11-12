@@ -10,7 +10,7 @@ export default function Cabecalho1 (){
          <div className="linkss">
             <Link to='/'>Inicio</Link>
          <Link to="/sobre">Sobre</Link>
-         <Link to="/sesgundo" >Noticias</Link>
+         <Link to="/segundo" >Noticias</Link>
 
          <Link to="/login"> Login </Link>
          <Link to="/cadastro">Cadastro</Link>
