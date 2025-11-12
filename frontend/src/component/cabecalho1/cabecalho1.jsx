@@ -15,7 +15,7 @@ export default function Cabecalho1 (){
          <Link to="/login"> Login </Link>
          <Link to="/cadastro">Cadastro</Link>
          </div>
-         <Link>Denuncie</Link>        
+              
          </header>
         </>
     )

@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+
 :root {
   --primary-color: #A36217;
   --secondary-color: #D3A065;
@@ -50,117 +51,132 @@ a:hover {
 
 /* Primeira Parte - Hero Section */
 .Primeira_parte {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 40px;
-  margin: 20px auto;
-  max-width: 1400px;
-  text-align: center;
+  background: var(--cream-bg);
   border: 3px solid var(--beige-border);
   border-radius: var(--border-radius);
-  background: var(--cream-bg);
   box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-}
-
-.Primeira_parte::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-  50% { transform: translate(-50%, -50%) rotate(180deg); }
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 1200px;
+  text-align: center;
 }
 
 #Titu_inicio {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 3rem);
   color: var(--accent-color);
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 1;
-  animation: fadeInUp 1s ease-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.conteudo_inicio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.coluna_esquerda {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagens_pequenas {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.imagens_pequenas img {
+  width: 30%;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--beige-border);
+  transition: var(--transition);
+}
+
+.imagens_pequenas img:hover {
+  transform: scale(1.05);
 }
 
 #bloq {
-  width: min(80%, 600px);
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: 1.2rem;
+  margin: 20px 0;
   color: var(--text-dark);
-  margin: 20px auto;
-  position: relative;
-  z-index: 1;
-  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-.inico_ima {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+.faixa_filhotes {
   width: 100%;
-  max-width: 1000px;
-  position: relative;
-  z-index: 1;
-  animation: fadeInUp 1s ease-out 0.4s both;
+  max-width: 500px;
+  border-radius: 15px;
+  margin-top: 10px;
+  border: 2px solid var(--beige-border);
+  box-shadow: var(--shadow);
 }
 
-.imagem_1, .imagem_2 {
+.coluna_direita {
+  flex: 1 1 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem_grande {
   width: 100%;
-  max-width: 350px;
-  height: 200px;
+  max-width: 400px;
+  height: auto;
   border-radius: 15px;
   object-fit: cover;
-  margin: 0 auto;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
   border: 2px solid var(--beige-border);
-}
-
-.imagem_1:hover, .imagem_2:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.imagem_3 {
-  width: min(90%, 800px);
-  height: 300px;
-  border-radius: 15px;
-  object-fit: cover;
-  margin: 20px auto 0;
   box-shadow: var(--shadow);
-  border: 2px solid var(--beige-border);
-  position: relative;
-  z-index: 1;
-  animation: fadeInUp 1s ease-out 0.6s both;
-  transition: var(--transition);
 }
 
-.imagem_3:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+/* Responsividade */
+@media (max-width: 900px) {
+  .conteudo_inicio {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagem_grande {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+
+  .imagens_pequenas img {
+    width: 120px;
+    height: 150px;
+  }
+
+  #bloq {
+    font-size: 1rem;
+  }
 }
+
+@media (max-width: 500px) {
+  .imagens_pequenas {
+    gap: 10px;
+  }
+
+  .imagens_pequenas img {
+    width: 100px;
+    height: 120px;
+  }
+
+  .faixa_filhotes {
+    max-width: 90%;
+  }
+
+  #Titu_inicio {
+    font-size: 1.8rem;
+  }
+}
+
 
 /* Responsividade */
 @media (max-width: 1024px) {

@@ -14,24 +14,38 @@ export default function Inicio() {
 
             <main>
 
-                <div className="Primeira_parte">
+            <div className="Primeira_parte">
+            <h1 id="Titu_inicio">Laços & Patas</h1>
 
-                    {/* Primeira parte*/}
-                    
-
-                    <h1 id="Titu_inicio">Laços & Patas</h1>
-                    <div className="inico_ima">
-                        <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" width={100}  className="imagem_1" />
-                    <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" width={100} className="imagem_1"/>
-                    <img src="src/assets/images/imgInicio/im3.png" alt="imagem3"  className="imagem_1"/>
-                    <img src="src/assets/images/imgInicio/imgrandeLado.png" alt="imagem4" className="imagem_2"/>
-
-                    </div>
-
-                    <h3 id="bloq">Criando conexões de amor entre pessoas e animais.</h3>
-                    <img src="src/assets/images/imgInicio/imLadopequeno.png" alt="imagem5" width={200} className="imagem_3"/>
-
+            <div className="conteudo_inicio">
+                <div className="coluna_esquerda">
+                <div className="imagens_pequenas">
+                    <img src="src/assets/images/imgInicio/im1.png" alt="imagem1" />
+                    <img src="src/assets/images/imgInicio/im2.png" alt="imagem2" />
+                    <img src="src/assets/images/imgInicio/im3.png" alt="imagem3" />
                 </div>
+
+                <h3 id="bloq">
+                    Criando conexões de amor entre pessoas e animais.
+                </h3>
+
+                <img
+                    src="src/assets/images/imgInicio/imLadopequeno.png"
+                    alt="filhotes"
+                    className="faixa_filhotes"
+                />
+                </div>
+
+                <div className="coluna_direita">
+                <img
+                    src="src/assets/images/imgInicio/imgrandeLado.png"
+                    alt="imagem grande"
+                    className="imagem_grande"
+                />
+                </div>
+            </div>
+            </div>
+
 
                 <div className="Segunda_Parte">
 
