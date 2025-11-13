@@ -9,7 +9,7 @@ export default function Noticias() {
     const [error, setError] = useState('');
     const [categoria, setCategoria] = useState('todos');
 
-    // 🔑 Coloque sua chave aqui (ou em um .env)
+    
     const API_KEY = "add179e5aa414dcaae30364ebaa3af94";
     const API_URL = `https://newsapi.org/v2/everything?q=(pet OR animal OR dog OR cat OR adoption) AND (Brazil OR Brasil)&language=pt&sortBy=publishedAt&pageSize=20&apiKey=${API_KEY}`;
 
