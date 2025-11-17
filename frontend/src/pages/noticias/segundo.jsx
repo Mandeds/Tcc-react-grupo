@@ -182,7 +182,7 @@ export default function Noticias() {
                                 <span>{noticia.fonte}</span>
                                 <span>{formatarData(noticia.data)}</span>
                             </div>
-                            <a href={noticia.url} target="_blank" rel="noopener noreferrer">
+                            <a href={noticia.url} id='link' target="_blank" rel="noopener noreferrer">
                                 Ler Mais →
                             </a>
                         </div>
