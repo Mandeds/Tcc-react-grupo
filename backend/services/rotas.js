@@ -8,7 +8,7 @@ async function CriarRotas(api) {
     api.use(UsuarioController);
     api.use('/admin', AdminController);
     api.use('/chat', ChatController);
-    api.use('/post', PostController);
+    api.use(PostController);
 
 };
 

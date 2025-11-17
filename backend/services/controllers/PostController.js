@@ -109,11 +109,10 @@ endpoints.get('/:id', async (req, res) => {
 
     try {
         const comando = `
-            SELECT p.*, u.nm_usuario, u.foto_perfil, pet.nm_pet, pet.especie, pet.raca
-            FROM post p
-            JOIN usuario u ON p.id_usuario = u.id_usuario
-            LEFT JOIN pet ON p.id_pet = pet.id_pet
-            WHERE p.id_post = ? AND u.banido = false
+            SELECT p.*, usuario.banido, usuario.nm_usuario, usuario.foto_perfil, pet.nm_pet, pet.especie, pet.raca
+            FROM post
+            INNER JOIN usuario ON post.id_usuario = usuario.id_usuario
+            WHERE post.id_post = ? AND usuario.banido = false
         `;
 
         const [posts] = await connection.query(comando, [id]);
@@ -196,7 +195,7 @@ endpoints.get('/recomendacoes', async (req, res) => {
         const [posts] = await connection.query(comando);
         res.json(posts);
     } catch (error) {
-        console.error('Erro ao buscar recomendações:', error);
+        console.error('Errro ao buscar recomendações:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 });

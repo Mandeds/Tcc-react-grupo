@@ -13,7 +13,7 @@
   "version": "1.0.0",
   "main": "services/app.js",
   "scripts": {
-    "start": "nodemon services/app.js",
+    "start": "nodemon ./services/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -61,14 +61,14 @@ function Cadastro() {
       };
 
       
-      const response = await axios.post('http://localhost:3000/cadastro', usuarioData);
+      const response = await axios.post('http://localhost:5000/cadastro', usuarioData);
       
       if (response.data.NovoId) {
         alert("Cadastro realizado com sucesso!");
         navigate("/"); 
       }
     } catch (error) {
-      console.error("Erro no cadastro:");
+      console.log("Erro no cadastro:");
       if (error.response?.data?.error) {
         setErro(error.response.data.error);
       } else if (error.code === 'NETWORK_ERROR' || error.message.includes('Network Error')) {

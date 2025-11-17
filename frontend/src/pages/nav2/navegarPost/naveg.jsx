@@ -33,7 +33,7 @@ export default function Naveg() {
         setPetsConversados(petsResponse.data);
       }
 
-      const recomendacoesResponse = await axios.get('http://localhost:5000/posts/recomendacoes', {
+      const recomendacoesResponse = await axios.get('http://localhost:5000/recomendacoes', {
         headers: { 'x-access-token': localStorage.getItem('token') }
       });
       setRecomendacoes(recomendacoesResponse.data);
