@@ -68,7 +68,7 @@ function Cadastro() {
         navigate("/"); 
       }
     } catch (error) {
-      console.error("Erro no cadastro:", error);
+      console.error("Erro no cadastro:");
       if (error.response?.data?.error) {
         setErro(error.response.data.error);
       } else if (error.code === 'NETWORK_ERROR' || error.message.includes('Network Error')) {
