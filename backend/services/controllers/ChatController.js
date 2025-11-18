@@ -99,8 +99,7 @@ endpoints.get('/conversas', async (req, res) => {
     const idUsuario = req.user.id_usuario || req.user.id_admin;
 
     try {
-        // Como não há tabela específica para conversas, vamos buscar usuários que têm mensagens privadas
-        // Isso é uma simplificação - em produção, seria melhor ter uma tabela de conversas
+      
         const comando = `
             SELECT DISTINCT u.id_usuario, u.nm_usuario, u.foto_perfil, u.cidade
             FROM usuario u

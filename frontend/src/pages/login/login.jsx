@@ -121,7 +121,6 @@ export default function Login() {
             {loading ? "Entrando..." : "Entrar"}
           </button>
 
-          <Link to="/Naveg">Entrar</Link>
 
           <div className="login-register">
             <p>Não tem conta?</p>

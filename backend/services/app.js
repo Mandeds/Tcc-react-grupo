@@ -19,7 +19,7 @@ const app = express();
 // Configura o middleware CORS (Cross-Origin Resource Sharing)
 app.use(cors({
     // Define qual origem (URL do frontend) tem permissão para acessar a API
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     // Permite o envio de credenciais (cookies, autenticação) nas requisições
     credentials: true
 }));
@@ -78,8 +78,8 @@ app.use((error, req, res, next) => {
     });
 });
 
-// Define a porta do servidor - usa a variável de ambiente PORT ou 3000 como fallback
-const PORT = process.env.PORT || 5000;
+// Define a porta do servidor - usa a variável de ambiente PORT ou 3001 como fallback
+const PORT = process.env.PORT || 3001;
 
 // Inicia o servidor na porta especificada
 app.listen(PORT, () => {

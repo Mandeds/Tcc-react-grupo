@@ -61,7 +61,7 @@ function Cadastro() {
       };
 
       
-      const response = await axios.post('http://localhost:3000/cadastro', usuarioData);
+      const response = await axios.post('http://localhost:5000/cadastro', usuarioData);
       
       if (response.data.NovoId) {
         alert("Cadastro realizado com sucesso!");
